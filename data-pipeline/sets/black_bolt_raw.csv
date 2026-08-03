@@ -1,0 +1,141 @@
+number,name,rarity,type,hp,price
+1,Snivy,Common,Pokemon,0,0.17
+2,Servine,Common,Pokemon,0,0.19
+3,Serperior ex,Double Rare,Pokemon,0,0.56
+4,Pansage,Common,Pokemon,0,0.06
+5,Simisage,Uncommon,Pokemon,0,0.10
+6,Petilil,Common,Pokemon,0,0.19
+7,Lilligant,Uncommon,Pokemon,0,0.15
+8,Maractus,Common,Pokemon,0,0.09
+9,Karrablast,Common,Pokemon,0,0.08
+10,Foongus,Common,Pokemon,0,0.07
+11,Amoonguss,Uncommon,Pokemon,0,0.11
+12,Victini,Rare,Pokemon,0,0.19
+13,Darumaka,Common,Pokemon,0,0.12
+14,Darmanitan,Uncommon,Pokemon,0,0.10
+15,Larvesta,Common,Pokemon,0,0.09
+16,Volcarona,Rare,Pokemon,0,0.23
+17,Panpour,Common,Pokemon,0,0.09
+18,Simipour,Uncommon,Pokemon,0,0.05
+19,Tympole,Common,Pokemon,0,0.11
+20,Palpitoad,Common,Pokemon,0,0.14
+21,Seismitoad,Uncommon,Pokemon,0,0.11
+22,Tirtouga,Uncommon,Pokemon,0,0.16
+23,Carracosta,Rare,Pokemon,0,0.19
+24,Alomomola,Uncommon,Pokemon,0,0.08
+25,Cubchoo,Common,Pokemon,0,0.10
+26,Beartic,Rare,Pokemon,0,0.15
+27,Cryogonal,Uncommon,Pokemon,0,0.09
+28,Kyurem ex,Double Rare,Pokemon,0,0.58
+29,Emolga,Common,Pokemon,0,0.11
+30,Tynamo,Common,Pokemon,0,0.24
+31,Eelektrik,Uncommon,Pokemon,0,0.21
+32,Eelektross,Uncommon,Pokemon,0,0.16
+33,Thundurus,Rare,Pokemon,0,0.14
+34,Zekrom ex,Double Rare,Pokemon,0,0.69
+35,Munna,Common,Pokemon,0,0.12
+36,Musharna,Uncommon,Pokemon,0,0.19
+37,Solosis,Common,Pokemon,0,0.07
+38,Duosion,Common,Pokemon,0,0.15
+39,Reuniclus,Uncommon,Pokemon,0,0.49
+40,Elgyem,Common,Pokemon,0,0.15
+41,Beheeyem,Uncommon,Pokemon,0,0.08
+42,Golett,Common,Pokemon,0,0.11
+43,Golurk,Uncommon,Pokemon,0,0.06
+44,Meloetta ex,Double Rare,Pokemon,0,0.60
+45,Drilbur,Common,Pokemon,0,0.11
+46,Excadrill ex,Double Rare,Pokemon,0,0.56
+47,Timburr,Common,Pokemon,0,0.11
+48,Gurdurr,Common,Pokemon,0,0.09
+49,Conkeldurr,Rare,Pokemon,0,0.19
+50,Throh,Uncommon,Pokemon,0,0.13
+51,Dwebble,Common,Pokemon,0,0.12
+52,Crustle,Uncommon,Pokemon,0,0.10
+53,Landorus,Rare,Pokemon,0,0.16
+54,Venipede,Common,Pokemon,0,0.11
+55,Whirlipede,Common,Pokemon,0,0.12
+56,Scolipede,Uncommon,Pokemon,0,0.17
+57,Sandile,Common,Pokemon,0,0.11
+58,Krokorok,Common,Pokemon,0,0.18
+59,Krookodile,Uncommon,Pokemon,0,0.49
+60,Escavalier,Uncommon,Pokemon,0,0.11
+61,Klink,Common,Pokemon,0,0.08
+62,Klang,Common,Pokemon,0,0.07
+63,Klinklang,Rare,Pokemon,0,0.11
+64,Pawniard,Common,Pokemon,0,0.07
+65,Bisharp,Uncommon,Pokemon,0,0.09
+66,Cobalion,Rare,Pokemon,0,0.17
+67,Genesect ex,Double Rare,Pokemon,0,0.87
+68,Axew,Common,Pokemon,0,0.19
+69,Fraxure,Common,Pokemon,0,0.13
+70,Haxorus,Rare,Pokemon,0,0.21
+71,Pidove,Common,Pokemon,0,0.05
+72,Tranquill,Common,Pokemon,0,0.09
+73,Unfezant,Uncommon,Pokemon,0,0.29
+74,Audino,Common,Pokemon,0,0.08
+75,Minccino,Common,Pokemon,0,0.17
+76,Cinccino,Uncommon,Pokemon,0,0.16
+77,Rufflet,Common,Pokemon,0,0.05
+78,Braviary,Uncommon,Pokemon,0,0.08
+79,Air Balloon,Uncommon,Trainer,0,0.17
+80,Antique Cover Fossil,Common,Trainer,0,0.17
+81,Energy Coin,Uncommon,Trainer,0,0.15
+82,Fennel,Uncommon,Trainer,0,0.15
+83,N's Plan,Uncommon,Trainer,0,0.25
+84,Pokegear 3.0,Uncommon,Trainer,0,0.30
+85,Professor's Research,Uncommon,Trainer,0,0.15
+86,Prism Energy,Uncommon,Trainer,0,0.19
+87,Snivy,Illustration Rare,Pokemon,0,33.89
+88,Servine,Illustration Rare,Pokemon,0,19.26
+89,Pansage,Illustration Rare,Pokemon,0,25.69
+90,Simisage,Illustration Rare,Pokemon,0,12.60
+91,Petilil,Illustration Rare,Pokemon,0,30.12
+92,Lilligant,Illustration Rare,Pokemon,0,60.67
+93,Maractus,Illustration Rare,Pokemon,0,8.22
+94,Karrablast,Illustration Rare,Pokemon,0,19.82
+95,Foongus,Illustration Rare,Pokemon,0,19.15
+96,Amoonguss,Illustration Rare,Pokemon,0,47.57
+97,Darumaka,Illustration Rare,Pokemon,0,16.90
+98,Darmanitan,Illustration Rare,Pokemon,0,12.52
+99,Larvesta,Illustration Rare,Pokemon,0,16.41
+100,Volcarona,Illustration Rare,Pokemon,0,61.05
+101,Panpour,Illustration Rare,Pokemon,0,16.49
+102,Simipour,Illustration Rare,Pokemon,0,14.17
+103,Tympole,Illustration Rare,Pokemon,0,16.17
+104,Palpitoad,Illustration Rare,Pokemon,0,18.62
+105,Seismitoad,Illustration Rare,Pokemon,0,255.53
+106,Tirtouga,Illustration Rare,Pokemon,0,40.08
+107,Carracosta,Illustration Rare,Pokemon,0,14.91
+108,Alomomola,Illustration Rare,Pokemon,0,26.47
+109,Cubchoo,Illustration Rare,Pokemon,0,20.25
+110,Beartic,Illustration Rare,Pokemon,0,10.23
+111,Cryogonal,Illustration Rare,Pokemon,0,9.69
+112,Emolga,Illustration Rare,Pokemon,0,19.68
+113,Tynamo,Illustration Rare,Pokemon,0,20.31
+114,Eelektrik,Illustration Rare,Pokemon,0,23.94
+115,Eelektross,Illustration Rare,Pokemon,0,30.23
+116,Munna,Illustration Rare,Pokemon,0,20.12
+117,Musharna,Illustration Rare,Pokemon,0,12.19
+118,Solosis,Illustration Rare,Pokemon,0,34.28
+119,Duosion,Illustration Rare,Pokemon,0,16.33
+120,Elgyem,Illustration Rare,Pokemon,0,15.02
+121,Beheeyem,Illustration Rare,Pokemon,0,8.72
+122,Golett,Illustration Rare,Pokemon,0,13.31
+123,Golurk,Illustration Rare,Pokemon,0,16.58
+124,Drilbur,Illustration Rare,Pokemon,0,8.23
+125,Timburr,Illustration Rare,Pokemon,0,21.11
+126,Gurdurr,Illustration Rare,Pokemon,0,12.34
+127,Conkeldurr,Illustration Rare,Pokemon,0,41.47
+128,Throh,Illustration Rare,Pokemon,0,10.73
+129,Dwebble,Illustration Rare,Pokemon,0,65.20
+130,Crustle,Illustration Rare,Pokemon,0,7.82
+131,Landorus,Illustration Rare,Pokemon,0,32.21
+132,Venipede,Illustration Rare,Pokemon,0,9.96
+133,Whirlipede,Illustration Rare,Pokemon,0,8.67
+134,Scolipede,Illustration Rare,Pokemon,0,30.32
+135,Sandile,Illustration Rare,Pokemon,0,18.48
+136,Krokorok,Illustration Rare,Pokemon,0,14.52
+137,Krookodile,Illustration Rare,Pokemon,0,60.28
+138,Escavalier,Illustration Rare,Pokemon,0,18.57
+139,Klink,Illustration Rare,Pokemon,0,9.26
+140,Klang,Illustration Rare,Pokemon,0,7.05

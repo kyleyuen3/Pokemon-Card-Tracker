@@ -1,0 +1,245 @@
+number,name,rarity,type,hp,price
+1,Ethan's Pinsir,Uncommon,Pokemon,120,0.30
+2,Yanma,Common,Pokemon,70,0.18
+3,Yanmega ex,Double Rare,Pokemon,280,0.53
+4,Pineco,Common,Pokemon,70,0.17
+5,Shroomish,Common,Pokemon,60,0.19
+6,Breloom,Common,Pokemon,120,0.13
+7,Cynthia's Roselia,Common,Pokemon,70,0.32
+8,Cynthia's Roserade,Rare,Pokemon,130,0.32
+9,Mow Rotom,Common,Pokemon,70,0.19
+10,Shaymin,Uncommon,Pokemon,80,0.90
+11,Dwebble,Common,Pokemon,70,0.27
+12,Crustle,Rare,Pokemon,150,0.36
+13,Fomantis,Common,Pokemon,60,0.16
+14,Lurantis,Uncommon,Pokemon,120,0.34
+15,Team Rocket's Blipbug,Common,Pokemon,60,0.23
+16,Applin,Common,Pokemon,40,0.21
+17,Dipplin,Common,Pokemon,90,0.23
+18,Hydrapple,Rare,Pokemon,170,0.33
+19,Team Rocket's Tarountula,Common,Pokemon,50,0.27
+20,Team Rocket's Spidops,Rare,Pokemon,130,0.30
+21,Smoliv,Common,Pokemon,60,0.33
+22,Dolliv,Common,Pokemon,90,0.27
+23,Arboliva ex,Double Rare,Pokemon,310,0.66
+24,Rellor,Common,Pokemon,40,0.23
+25,Rabsca ex,Double Rare,Pokemon,250,0.54
+26,Teal Mask Ogerpon,Uncommon,Pokemon,110,0.27
+27,Growlithe,Common,Pokemon,80,0.27
+28,Arcanine,Uncommon,Pokemon,140,0.34
+29,Ponyta,Common,Pokemon,70,0.24
+30,Rapidash,Uncommon,Pokemon,110,0.27
+31,Team Rocket's Moltres ex,Double Rare,Pokemon,220,0.84
+32,Ethan's Cyndaquil,Common,Pokemon,70,0.29
+33,Ethan's Quilava,Common,Pokemon,100,0.30
+34,Ethan's Typhlosion,Rare,Pokemon,170,0.46
+35,Ethan's Slugma,Common,Pokemon,80,0.19
+36,Ethan's Magcargo,Rare,Pokemon,130,0.27
+37,Team Rocket's Houndour,Common,Pokemon,70,0.19
+38,Team Rocket's Houndoom,Uncommon,Pokemon,130,0.33
+39,Ethan's Ho-Oh ex,Double Rare,Pokemon,230,0.66
+40,Torchic,Common,Pokemon,70,0.25
+41,Combusken,Common,Pokemon,100,0.31
+42,Blaziken,Rare,Pokemon,170,0.35
+43,Heat Rotom,Common,Pokemon,80,0.23
+44,Hearthflame Mask Ogerpon,Uncommon,Pokemon,110,0.27
+45,Misty's Psyduck,Uncommon,Pokemon,70,0.87
+46,Misty's Staryu,Common,Pokemon,70,0.32
+47,Misty's Starmie,Uncommon,Pokemon,100,0.29
+48,Misty's Magikarp,Common,Pokemon,30,0.39
+49,Misty's Gyarados,Rare,Pokemon,180,0.49
+50,Misty's Lapras,Common,Pokemon,110,0.34
+51,Team Rocket's Articuno,Rare,Pokemon,120,0.55
+52,Cynthia's Feebas,Common,Pokemon,30,0.27
+53,Cynthia's Milotic,Uncommon,Pokemon,130,0.32
+54,Clamperl,Common,Pokemon,60,0.19
+55,Huntail,Uncommon,Pokemon,110,0.26
+56,Gorebyss,Rare,Pokemon,90,0.31
+57,Buizel,Common,Pokemon,70,0.27
+58,Floatzel,Uncommon,Pokemon,120,0.31
+59,Snover,Common,Pokemon,90,0.23
+60,Abomasnow,Uncommon,Pokemon,150,0.33
+61,Wash Rotom,Common,Pokemon,80,0.25
+62,Arrokuda,Common,Pokemon,70,0.14
+63,Barraskewda,Uncommon,Pokemon,130,0.32
+64,Cetoddle,Common,Pokemon,100,0.19
+65,Cetitan ex,Double Rare,Pokemon,300,0.50
+66,Dondozo ex,Double Rare,Pokemon,260,0.50
+67,Wellspring Mask Ogerpon,Uncommon,Pokemon,110,0.34
+68,Electabuzz,Common,Pokemon,90,0.20
+69,Electivire ex,Double Rare,Pokemon,280,0.66
+70,Team Rocket's Zapdos,Rare,Pokemon,120,0.38
+71,Ethan's Pichu,Common,Pokemon,30,0.42
+72,Team Rocket's Mareep,Common,Pokemon,60,0.20
+73,Team Rocket's Flaaffy,Common,Pokemon,90,0.24
+74,Team Rocket's Ampharos,Uncommon,Pokemon,140,0.34
+75,Electrike,Common,Pokemon,60,0.20
+76,Manectric,Uncommon,Pokemon,120,0.32
+77,Rotom,Common,Pokemon,60,0.19
+78,Zeraora,Rare,Pokemon,100,0.35
+79,Team Rocket's Drowzee,Common,Pokemon,80,0.22
+80,Team Rocket's Hypno,Uncommon,Pokemon,130,0.30
+81,Team Rocket's Mewtwo ex,Double Rare,Pokemon,280,1.64
+82,Team Rocket's Wobbuffet,Rare,Pokemon,110,0.32
+83,Steven's Baltoy,Common,Pokemon,60,0.19
+84,Steven's Claydol,Uncommon,Pokemon,120,0.30
+85,Team Rocket's Chingling,Common,Pokemon,30,0.24
+86,Steven's Carbink,Common,Pokemon,80,0.21
+87,Team Rocket's Mimikyu,Uncommon,Pokemon,60,0.48
+88,Team Rocket's Dottler,Common,Pokemon,80,0.29
+89,Team Rocket's Orbeetle,Uncommon,Pokemon,130,0.25
+90,Mankey,Common,Pokemon,70,0.22
+91,Primeape,Common,Pokemon,110,0.27
+92,Annihilape,Rare,Pokemon,150,0.31
+93,Ethan's Sudowoodo,Common,Pokemon,110,0.29
+94,Team Rocket's Larvitar,Common,Pokemon,70,0.19
+95,Team Rocket's Pupitar,Common,Pokemon,100,0.21
+96,Team Rocket's Tyranitar,Rare,Pokemon,180,0.39
+97,Nosepass,Common,Pokemon,80,0.19
+98,Probopass,Uncommon,Pokemon,140,0.30
+99,Meditite,Common,Pokemon,70,0.16
+100,Medicham,Uncommon,Pokemon,120,0.30
+101,Regirock ex,Double Rare,Pokemon,230,0.52
+102,Cynthia's Gible,Common,Pokemon,70,0.38
+103,Cynthia's Gabite,Common,Pokemon,100,0.41
+104,Cynthia's Garchomp ex,Double Rare,Pokemon,330,0.94
+105,Hippopotas,Common,Pokemon,90,0.16
+106,Hippowdon,Uncommon,Pokemon,160,0.27
+107,Mudbray,Common,Pokemon,90,0.17
+108,Mudsdale,Uncommon,Pokemon,150,0.33
+109,Arven's Toedscool,Common,Pokemon,70,0.16
+110,Arven's Toedscruel,Uncommon,Pokemon,140,0.34
+111,Cornerstone Mask Ogerpon,Uncommon,Pokemon,110,0.32
+112,Team Rocket's Ekans,Common,Pokemon,70,0.23
+113,Team Rocket's Arbok,Uncommon,Pokemon,130,0.32
+114,Team Rocket's Nidoran F,Common,Pokemon,70,0.35
+115,Team Rocket's Nidorina,Common,Pokemon,90,0.32
+116,Team Rocket's Nidoqueen,Uncommon,Pokemon,170,0.30
+117,Team Rocket's Nidoran M,Common,Pokemon,70,0.38
+118,Team Rocket's Nidorino,Common,Pokemon,100,0.29
+119,Team Rocket's Nidoking ex,Double Rare,Pokemon,330,0.69
+120,Team Rocket's Zubat,Common,Pokemon,50,0.25
+121,Team Rocket's Golbat,Uncommon,Pokemon,80,0.35
+122,Team Rocket's Crobat ex,Double Rare,Pokemon,310,0.56
+123,Team Rocket's Grimer,Common,Pokemon,80,0.14
+124,Team Rocket's Muk,Uncommon,Pokemon,150,0.32
+125,Team Rocket's Koffing,Common,Pokemon,70,0.24
+126,Team Rocket's Weezing,Uncommon,Pokemon,130,0.35
+127,Team Rocket's Murkrow,Uncommon,Pokemon,80,0.33
+128,Team Rocket's Sneasel,Rare,Pokemon,80,0.35
+129,Cynthia's Spiritomb,Uncommon,Pokemon,70,0.39
+130,Marnie's Purrloin,Common,Pokemon,60,0.29
+131,Marnie's Liepard,Uncommon,Pokemon,100,0.30
+132,Marnie's Scraggy,Common,Pokemon,70,0.31
+133,Marnie's Scrafty,Uncommon,Pokemon,120,0.33
+134,Marnie's Impidimp,Common,Pokemon,70,0.33
+135,Marnie's Morgrem,Uncommon,Pokemon,100,0.31
+136,Marnie's Grimmsnarl ex,Double Rare,Pokemon,320,0.73
+137,Marnie's Morpeko,Common,Pokemon,70,0.27
+138,Arven's Maschiff,Common,Pokemon,70,0.25
+139,Arven's Mabosstiff ex,Double Rare,Pokemon,270,0.44
+140,Forretress,Uncommon,Pokemon,130,0.29
+141,Skarmory,Common,Pokemon,110,0.18
+142,Steven's Skarmory,Common,Pokemon,120,0.18
+143,Steven's Beldum,Common,Pokemon,70,0.24
+144,Steven's Metang,Uncommon,Pokemon,100,0.34
+145,Steven's Metagross ex,Double Rare,Pokemon,340,0.75
+146,Zamazenta,Rare,Pokemon,130,0.29
+147,Team Rocket's Rattata,Common,Pokemon,50,0.24
+148,Team Rocket's Raticate,Common,Pokemon,90,0.17
+149,Team Rocket's Meowth,Common,Pokemon,70,0.21
+150,Team Rocket's Persian ex,Double Rare,Pokemon,260,0.59
+151,Kangaskhan,Common,Pokemon,120,0.22
+152,Tauros,Common,Pokemon,130,0.26
+153,Team Rocket's Porygon,Common,Pokemon,60,0.25
+154,Team Rocket's Porygon2,Common,Pokemon,90,0.26
+155,Team Rocket's Porygon-Z,Uncommon,Pokemon,140,0.36
+156,Taillow,Common,Pokemon,60,0.25
+157,Swellow,Common,Pokemon,100,0.22
+158,Arven's Skwovet,Common,Pokemon,60,0.21
+159,Arven's Greedent,Rare,Pokemon,120,0.28
+160,Squawkabilly,Common,Pokemon,70,0.20
+161,Arven's Sandwich,Uncommon,Trainer,0,0.15
+162,Cynthia's Power Weight,Uncommon,Trainer,0,0.23
+163,Emcee's Hype,Common,Trainer,0,0.18
+164,Energy Recycler,Uncommon,Trainer,0,0.33
+165,Ethan's Adventure,Uncommon,Trainer,0,0.24
+166,Granite Cave,Uncommon,Trainer,0,0.23
+167,Judge,Uncommon,Trainer,0,0.26
+168,Sacred Ash,Uncommon,Trainer,0,0.29
+169,Spikemuth Gym,Uncommon,Trainer,0,0.32
+170,Team Rocket's Archer,Uncommon,Trainer,0,0.37
+171,Team Rocket's Ariana,Uncommon,Trainer,0,0.31
+172,Team Rocket's Bother-Bot,Uncommon,Trainer,0,0.31
+173,Team Rocket's Factory,Uncommon,Trainer,0,0.32
+174,Team Rocket's Giovanni,Uncommon,Trainer,0,0.34
+175,Team Rocket's Great Ball,Uncommon,Trainer,0,0.30
+176,Team Rocket's Petrel,Uncommon,Trainer,0,0.66
+177,Team Rocket's Proton,Uncommon,Trainer,0,0.31
+178,Team Rocket's Transceiver,Uncommon,Trainer,0,0.39
+179,Team Rocket's Venture Bomb,Uncommon,Trainer,0,0.33
+180,Team Rocket's Watchtower,Uncommon,Trainer,0,0.40
+181,TM Machine,Uncommon,Trainer,0,0.21
+182,Team Rocket's Energy,Uncommon,Trainer,0,0.57
+183,Yanma,Illustration Rare,Pokemon,70,4.35
+184,Cynthia's Roserade,Illustration Rare,Pokemon,130,14.26
+185,Shaymin,Illustration Rare,Pokemon,80,12.41
+186,Crustle,Illustration Rare,Pokemon,150,3.42
+187,Team Rocket's Spidops,Illustration Rare,Pokemon,130,6.09
+188,Hydrapple,Illustration Rare,Pokemon,170,4.14
+189,Rapidash,Illustration Rare,Pokemon,110,9.86
+190,Ethan's Typhlosion,Illustration Rare,Pokemon,170,26.79
+191,Team Rocket's Houndoom,Illustration Rare,Pokemon,130,13.57
+192,Blaziken,Illustration Rare,Pokemon,170,11.20
+193,Misty's Psyduck,Illustration Rare,Pokemon,70,73.69
+194,Misty's Lapras,Illustration Rare,Pokemon,110,39.33
+195,Clamperl,Illustration Rare,Pokemon,60,5.29
+196,Electrike,Illustration Rare,Pokemon,60,3.54
+197,Rotom,Illustration Rare,Pokemon,60,3.85
+198,Team Rocket's Orbeetle,Illustration Rare,Pokemon,130,3.55
+199,Team Rocket's Weezing,Illustration Rare,Pokemon,130,7.38
+200,Team Rocket's Murkrow,Illustration Rare,Pokemon,80,10.05
+201,Zamazenta,Illustration Rare,Pokemon,130,4.91
+202,Team Rocket's Raticate,Illustration Rare,Pokemon,90,5.80
+203,Team Rocket's Meowth,Illustration Rare,Pokemon,70,28.29
+204,Kangaskhan,Illustration Rare,Pokemon,120,11.32
+205,Arven's Greedent,Illustration Rare,Pokemon,120,3.78
+206,Yanmega ex,Ultra Rare,Pokemon,280,1.07
+207,Arboliva ex,Ultra Rare,Pokemon,310,2.28
+208,Team Rocket's Moltres ex,Ultra Rare,Pokemon,220,5.16
+209,Ethan's Ho-Oh ex,Ultra Rare,Pokemon,230,5.01
+210,Cetitan ex,Ultra Rare,Pokemon,300,1.08
+211,Dondozo ex,Ultra Rare,Pokemon,260,1.20
+212,Electivire ex,Ultra Rare,Pokemon,280,1.24
+213,Team Rocket's Mewtwo ex,Ultra Rare,Pokemon,280,20.91
+214,Regirock ex,Ultra Rare,Pokemon,230,1.40
+215,Cynthia's Garchomp ex,Ultra Rare,Pokemon,330,4.38
+216,Team Rocket's Nidoking ex,Ultra Rare,Pokemon,330,3.44
+217,Team Rocket's Crobat ex,Ultra Rare,Pokemon,310,2.72
+218,Arven's Mabosstiff ex,Ultra Rare,Pokemon,270,1.68
+219,Team Rocket's Persian ex,Ultra Rare,Pokemon,260,3.87
+220,Emcee's Hype,Ultra Rare,Trainer,0,1.92
+221,Ethan's Adventure,Ultra Rare,Trainer,0,3.19
+222,Judge,Ultra Rare,Trainer,0,2.46
+223,Team Rocket's Archer,Ultra Rare,Trainer,0,2.85
+224,Team Rocket's Ariana,Ultra Rare,Trainer,0,3.67
+225,Team Rocket's Giovanni,Ultra Rare,Trainer,0,5.55
+226,Team Rocket's Petrel,Ultra Rare,Trainer,0,9.78
+227,Team Rocket's Proton,Ultra Rare,Trainer,0,3.81
+228,Yanmega ex,Special Illustration Rare,Pokemon,280,23.77
+229,Team Rocket's Moltres ex,Special Illustration Rare,Pokemon,220,108.11
+230,Ethan's Ho-Oh ex,Special Illustration Rare,Pokemon,230,175.28
+231,Team Rocket's Mewtwo ex,Special Illustration Rare,Pokemon,280,531.03
+232,Cynthia's Garchomp ex,Special Illustration Rare,Pokemon,330,264.57
+233,Team Rocket's Nidoking ex,Special Illustration Rare,Pokemon,330,108.12
+234,Team Rocket's Crobat ex,Special Illustration Rare,Pokemon,310,67.09
+235,Arven's Mabosstiff ex,Special Illustration Rare,Pokemon,270,33.03
+236,Ethan's Adventure,Special Illustration Rare,Trainer,0,42.50
+237,Team Rocket's Ariana,Special Illustration Rare,Trainer,0,22.38
+238,Team Rocket's Giovanni,Special Illustration Rare,Trainer,0,30.16
+239,Ethan's Ho-Oh ex,Hyper Rare,Pokemon,230,28.04
+240,Team Rocket's Mewtwo ex,Hyper Rare,Pokemon,280,62.52
+241,Cynthia's Garchomp ex,Hyper Rare,Pokemon,330,30.41
+242,Team Rocket's Crobat ex,Hyper Rare,Pokemon,310,17.07
+243,Jamming Tower,Hyper Rare,Trainer,0,8.57
+244,Levincia,Hyper Rare,Trainer,0,8.69

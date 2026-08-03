@@ -1,0 +1,191 @@
+number,name,rarity,type,hp,price
+1,Caterpie,Common,Pokemon,50,0.25
+2,Metapod,Common,Pokemon,90,0.27
+3,Butterfree,Rare,Pokemon,120,0.48
+4,Paras,Common,Pokemon,70,0.28
+5,Parasect,Common,Pokemon,120,0.25
+6,Petilil,Common,Pokemon,50,0.27
+7,Lilligant,Common,Pokemon,110,0.26
+8,Maractus,Uncommon,Pokemon,110,0.24
+9,Karrablast,Common,Pokemon,60,0.24
+10,Foongus,Common,Pokemon,50,0.22
+11,Amoonguss ex,Double Rare,Pokemon,260,0.53
+12,Shelmet,Common,Pokemon,70,0.22
+13,Accelgor,Uncommon,Pokemon,100,0.27
+14,Durant,Common,Pokemon,90,0.27
+15,Virizion,Uncommon,Pokemon,120,0.41
+16,Sprigatito,Common,Pokemon,60,0.35
+17,Floragato,Common,Pokemon,90,0.30
+18,Meowscarada,Rare,Pokemon,160,0.49
+19,Nymble,Common,Pokemon,50,0.26
+20,Magmar,Common,Pokemon,80,0.26
+21,Magmortar,Rare,Pokemon,130,0.39
+22,Torchic,Common,Pokemon,60,0.26
+23,Combusken,Uncommon,Pokemon,90,0.28
+24,Blaziken ex,Double Rare,Pokemon,320,1.59
+25,Torkoal,Common,Pokemon,130,0.27
+26,N's Darumaka,Common,Pokemon,80,0.30
+27,N's Darmanitan,Uncommon,Pokemon,140,0.39
+28,Larvesta,Common,Pokemon,80,0.23
+29,Volcarona,Uncommon,Pokemon,140,0.28
+30,Reshiram ex,Double Rare,Pokemon,220,0.60
+31,Volcanion ex,Double Rare,Pokemon,220,0.70
+32,Articuno,Uncommon,Pokemon,110,0.42
+33,Remoraid,Common,Pokemon,60,0.25
+34,Octillery,Uncommon,Pokemon,110,0.37
+35,Lotad,Common,Pokemon,60,0.31
+36,Lombre,Common,Pokemon,90,0.24
+37,Ludicolo,Rare,Pokemon,140,0.56
+38,Wingull,Common,Pokemon,60,0.28
+39,Pelipper,Uncommon,Pokemon,120,0.24
+40,Wailmer,Common,Pokemon,130,0.23
+41,Wailord,Rare,Pokemon,240,0.42
+42,Regice,Uncommon,Pokemon,120,0.43
+43,Veluza ex,Double Rare,Pokemon,210,0.56
+44,Alolan Geodude,Common,Pokemon,60,0.28
+45,Alolan Graveler,Common,Pokemon,100,0.23
+46,Alolan Golem,Uncommon,Pokemon,180,0.41
+47,Iono's Voltorb,Common,Pokemon,70,0.22
+48,Iono's Electrode,Uncommon,Pokemon,100,0.42
+49,N's Joltik,Common,Pokemon,40,0.23
+50,Togedemaru,Common,Pokemon,80,0.21
+51,Tapu Koko ex,Double Rare,Pokemon,200,0.62
+52,Iono's Tadbulb,Common,Pokemon,60,0.27
+53,Iono's Bellibolt ex,Double Rare,Pokemon,280,0.56
+54,Iono's Wattrel,Common,Pokemon,60,0.32
+55,Iono's Kilowattrel,Rare,Pokemon,120,0.50
+56,Lillie's Clefairy ex,Double Rare,Pokemon,190,2.05
+57,Alolan Marowak,Uncommon,Pokemon,120,0.26
+58,Mr. Mime,Common,Pokemon,90,0.28
+59,Shuppet,Common,Pokemon,60,0.33
+60,Banette,Uncommon,Pokemon,90,0.55
+61,Beldum,Common,Pokemon,60,0.20
+62,Metang,Common,Pokemon,100,0.26
+63,Metagross,Rare,Pokemon,170,0.67
+64,N's Sigilyph,Common,Pokemon,110,0.25
+65,Oricorio,Common,Pokemon,80,0.22
+66,Lillie's Cutiefly,Common,Pokemon,30,0.24
+67,Lillie's Ribombee,Rare,Pokemon,70,1.43
+68,Lillie's Comfey,Common,Pokemon,70,0.23
+69,Mimikyu ex,Double Rare,Pokemon,190,1.63
+70,Dhelmise,Common,Pokemon,130,0.27
+71,Impidimp,Common,Pokemon,70,0.25
+72,Morgrem,Common,Pokemon,90,0.21
+73,Grimmsnarl,Uncommon,Pokemon,170,0.34
+74,Milcery,Common,Pokemon,50,0.32
+75,Alcremie ex,Double Rare,Pokemon,250,0.66
+76,Cubone,Common,Pokemon,70,0.28
+77,Swinub,Common,Pokemon,70,0.26
+78,Piloswine,Common,Pokemon,100,0.25
+79,Mamoswine ex,Double Rare,Pokemon,340,0.52
+80,Larvitar,Common,Pokemon,70,0.25
+81,Pupitar,Common,Pokemon,90,0.28
+82,Regirock,Rare,Pokemon,130,0.41
+83,Pancham,Common,Pokemon,60,0.26
+84,Rockruff,Common,Pokemon,70,0.29
+85,Lycanroc,Rare,Pokemon,120,0.39
+86,Hop's Silicobra,Common,Pokemon,80,0.24
+87,Hop's Sandaconda,Uncommon,Pokemon,140,0.40
+88,Toedscool,Common,Pokemon,60,0.28
+89,Toedscruel,Uncommon,Pokemon,130,0.39
+90,Klawf,Uncommon,Pokemon,120,0.24
+91,Koffing,Common,Pokemon,60,0.27
+92,Weezing,Uncommon,Pokemon,130,0.42
+93,Paldean Wooper,Common,Pokemon,60,0.27
+94,Paldean Clodsire ex,Double Rare,Pokemon,280,0.55
+95,Tyranitar,Rare,Pokemon,190,0.51
+96,N's Purrloin,Common,Pokemon,70,0.26
+97,N's Zorua,Common,Pokemon,70,0.35
+98,N's Zoroark ex,Double Rare,Pokemon,280,1.50
+99,Pangoro,Uncommon,Pokemon,140,0.29
+100,Lokix,Uncommon,Pokemon,120,0.36
+101,Bombirdier,Common,Pokemon,120,0.25
+102,Escavalier,Uncommon,Pokemon,120,0.26
+103,N's Klink,Common,Pokemon,60,0.28
+104,N's Klang,Common,Pokemon,90,0.28
+105,N's Klinklang,Uncommon,Pokemon,160,0.38
+106,Galarian Stunfisk,Common,Pokemon,100,0.26
+107,Magearna,Rare,Pokemon,90,0.39
+108,Hop's Corviknight,Uncommon,Pokemon,170,0.39
+109,Cufant,Common,Pokemon,100,0.25
+110,Copperajah,Uncommon,Pokemon,190,0.39
+111,Hop's Zacian ex,Double Rare,Pokemon,230,0.57
+112,Bagon,Common,Pokemon,70,0.26
+113,Shelgon,Common,Pokemon,100,0.26
+114,Salamence ex,Double Rare,Pokemon,320,0.65
+115,Druddigon,Common,Pokemon,120,0.27
+116,N's Reshiram,Rare,Pokemon,130,0.57
+117,Hop's Snorlax,Rare,Pokemon,150,0.66
+118,Sentret,Common,Pokemon,60,0.27
+119,Furret,Common,Pokemon,120,0.27
+120,Dunsparce,Common,Pokemon,70,2.54
+121,Dudunsparce ex,Double Rare,Pokemon,270,0.68
+122,Kecleon,Common,Pokemon,80,0.25
+123,Tropius,Common,Pokemon,110,0.24
+124,Audino,Common,Pokemon,110,0.28
+125,Minccino,Common,Pokemon,70,0.23
+126,Cinccino,Uncommon,Pokemon,100,0.40
+127,Noibat,Common,Pokemon,60,0.31
+128,Noivern,Rare,Pokemon,110,0.41
+129,Komala,Common,Pokemon,100,0.26
+130,Drampa,Common,Pokemon,120,0.24
+131,Skwovet,Common,Pokemon,60,0.22
+132,Greedent,Uncommon,Pokemon,120,0.33
+133,Hop's Rookidee,Common,Pokemon,60,0.27
+134,Hop's Corvisquire,Common,Pokemon,90,0.26
+135,Hop's Wooloo,Common,Pokemon,70,0.26
+136,Hop's Dubwool,Rare,Pokemon,120,0.37
+137,Cramorant,Common,Pokemon,110,0.25
+138,Hop's Cramorant,Uncommon,Pokemon,110,0.25
+139,Lechonk,Common,Pokemon,70,0.30
+140,Oinkologne,Uncommon,Pokemon,120,0.46
+141,Squawkabilly,Common,Pokemon,70,0.24
+142,Billy & O'Nare,Common,Trainer,0,0.25
+143,Black Belt's Training,Common,Trainer,0,0.36
+144,Black Belt's Training,Common,Trainer,0,0.40
+145,Black Belt's Training,Common,Trainer,0,0.33
+146,Brock's Scouting,Uncommon,Trainer,0,0.53
+147,Hop's Bag,Uncommon,Trainer,0,0.30
+148,Hop's Choice Band,Uncommon,Trainer,0,0.22
+149,Iris's Fighting Spirit,Uncommon,Trainer,0,0.27
+150,Levincia,Uncommon,Trainer,0,0.33
+151,Lillie's Pearl,Uncommon,Trainer,0,0.23
+152,N's Castle,Uncommon,Trainer,0,0.30
+153,N's PP Up,Uncommon,Trainer,0,0.35
+154,Postwick,Uncommon,Trainer,0,0.31
+155,Professor's Research,Common,Trainer,0,0.53
+156,Redeemable Ticket,Uncommon,Trainer,0,0.44
+157,Ruffian,Uncommon,Trainer,0,0.35
+158,Super Potion,Uncommon,Trainer,0,0.41
+159,Spiky Energy,Uncommon,Trainer,0,0.70
+160,Maractus,Illustration Rare,Pokemon,110,2.38
+161,Articuno,Illustration Rare,Pokemon,110,22.21
+162,Wailord,Illustration Rare,Pokemon,240,16.47
+163,Iono's Kilowattrel,Illustration Rare,Pokemon,120,4.91
+164,Lillie's Ribombee,Illustration Rare,Pokemon,70,5.65
+165,Swinub,Illustration Rare,Pokemon,70,3.81
+166,Lycanroc,Illustration Rare,Pokemon,120,3.08
+167,N's Reshiram,Illustration Rare,Pokemon,130,18.11
+168,Furret,Illustration Rare,Pokemon,120,9.11
+169,Noibat,Illustration Rare,Pokemon,60,7.23
+170,Hop's Wooloo,Illustration Rare,Pokemon,70,4.85
+171,Volcanion ex,Ultra Rare,Pokemon,220,0.96
+172,Iono's Bellibolt ex,Ultra Rare,Pokemon,280,1.72
+173,Lillie's Clefairy ex,Ultra Rare,Pokemon,190,8.28
+174,Mamoswine ex,Ultra Rare,Pokemon,340,0.86
+175,N's Zoroark ex,Ultra Rare,Pokemon,280,3.97
+176,Hop's Zacian ex,Ultra Rare,Pokemon,230,1.93
+177,Salamence ex,Ultra Rare,Pokemon,320,2.10
+178,Dudunsparce ex,Ultra Rare,Pokemon,270,0.68
+179,Brock's Scouting,Ultra Rare,Trainer,0,2.13
+180,Iris's Fighting Spirit,Ultra Rare,Trainer,0,1.21
+181,Ruffian,Ultra Rare,Trainer,0,0.82
+182,Volcanion ex,Special Illustration Rare,Pokemon,220,19.61
+183,Iono's Bellibolt ex,Special Illustration Rare,Pokemon,280,41.61
+184,Lillie's Clefairy ex,Special Illustration Rare,Pokemon,190,121.94
+185,N's Zoroark ex,Special Illustration Rare,Pokemon,280,49.17
+186,Hop's Zacian ex,Special Illustration Rare,Pokemon,230,36.49
+187,Salamence ex,Special Illustration Rare,Pokemon,320,59.89
+188,Iono's Bellibolt ex,Hyper Rare,Pokemon,280,17.57
+189,N's Zoroark ex,Hyper Rare,Pokemon,280,15.42
+190,Spiky Energy,Hyper Rare,Trainer,0,4.19

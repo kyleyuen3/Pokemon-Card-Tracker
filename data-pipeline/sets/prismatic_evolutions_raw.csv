@@ -1,0 +1,181 @@
+number,name,rarity,type,hp,price
+1,Exeggcute,Common,Pokemon,60,0.18
+2,Exeggutor,Uncommon,Pokemon,140,0.23
+3,Pinsir,Common,Pokemon,120,0.07
+4,Budew,Common,Pokemon,30,0.23
+5,Leafeon,Rare,Pokemon,120,0.35
+6,Leafeon ex,Double Rare,Pokemon,270,4.21
+7,Cottonee,Common,Pokemon,60,0.22
+8,Whimsicott,Rare,Pokemon,100,0.19
+9,Applin,Common,Pokemon,40,0.20
+10,Dipplin,Uncommon,Pokemon,80,0.25
+11,Hydrapple ex,Double Rare,Pokemon,330,0.71
+12,Teal Mask Ogerpon ex,Double Rare,Pokemon,210,2.36
+13,Flareon,Rare,Pokemon,130,0.38
+14,Flareon ex,Double Rare,Pokemon,270,3.87
+15,Litleo,Common,Pokemon,70,0.11
+16,Pyroar,Uncommon,Pokemon,120,0.20
+17,Hearthflame Mask Ogerpon ex,Double Rare,Pokemon,210,0.70
+18,Slowpoke,Common,Pokemon,70,0.22
+19,Slowking,Uncommon,Pokemon,130,0.21
+20,Goldeen,Common,Pokemon,50,0.19
+21,Seaking,Uncommon,Pokemon,110,0.29
+22,Vaporeon,Rare,Pokemon,130,0.37
+23,Vaporeon ex,Double Rare,Pokemon,280,3.15
+24,Suicune,Uncommon,Pokemon,120,0.27
+25,Glaceon,Rare,Pokemon,120,0.37
+26,Glaceon ex,Double Rare,Pokemon,270,2.18
+27,Wellspring Mask Ogerpon ex,Double Rare,Pokemon,210,0.84
+28,Pikachu ex,Double Rare,Pokemon,190,2.46
+29,Jolteon,Rare,Pokemon,110,0.38
+30,Jolteon ex,Double Rare,Pokemon,260,4.51
+31,Iron Hands ex,Double Rare,Pokemon,230,0.71
+32,Iron Thorns ex,Double Rare,Pokemon,230,0.87
+33,Espeon,Rare,Pokemon,110,0.50
+34,Espeon ex,Double Rare,Pokemon,270,4.48
+35,Duskull,Common,Pokemon,60,0.26
+36,Dusclops,Common,Pokemon,90,0.29
+37,Dusknoir,Rare,Pokemon,160,0.32
+38,Spritzee,Common,Pokemon,60,0.14
+39,Aromatisse,Common,Pokemon,120,0.15
+40,Sylveon,Rare,Pokemon,120,0.44
+41,Sylveon ex,Double Rare,Pokemon,270,2.99
+42,Scream Tail,Uncommon,Pokemon,90,0.21
+43,Flutter Mane,Rare,Pokemon,90,0.16
+44,Munkidori,Rare,Pokemon,110,0.32
+45,Fezandipiti,Rare,Pokemon,120,0.19
+46,Iron Boulder,Rare,Pokemon,140,0.19
+47,Larvitar,Common,Pokemon,70,0.18
+48,Pupitar,Common,Pokemon,90,0.11
+49,Groudon,Rare,Pokemon,130,0.10
+50,Riolu,Common,Pokemon,70,0.20
+51,Lucario ex,Double Rare,Pokemon,260,0.86
+52,Hippopotas,Common,Pokemon,90,0.07
+53,Hippowdon,Common,Pokemon,150,0.20
+54,Bloodmoon Ursaluna,Rare,Pokemon,150,0.16
+55,Great Tusk,Uncommon,Pokemon,140,0.11
+56,Sandy Shocks ex,Double Rare,Pokemon,220,0.60
+57,Okidogi,Rare,Pokemon,130,0.18
+58,Cornerstone Mask Ogerpon ex,Double Rare,Pokemon,210,0.80
+59,Umbreon,Rare,Pokemon,110,0.57
+60,Umbreon ex,Double Rare,Pokemon,280,7.43
+61,Sneasel,Common,Pokemon,60,0.17
+62,Houndour,Common,Pokemon,70,0.17
+63,Houndoom,Common,Pokemon,120,0.25
+64,Tyranitar ex,Double Rare,Pokemon,340,0.73
+65,Roaring Moon,Rare,Pokemon,140,0.20
+66,Bronzor,Common,Pokemon,70,0.08
+67,Bronzong,Uncommon,Pokemon,130,0.15
+68,Heatran,Uncommon,Pokemon,130,0.13
+69,Duraludon,Common,Pokemon,130,0.14
+70,Archaludon,Rare,Pokemon,180,0.10
+71,Dreepy,Common,Pokemon,70,0.28
+72,Drakloak,Common,Pokemon,90,0.25
+73,Dragapult ex,Double Rare,Pokemon,320,1.45
+74,Eevee,Common,Pokemon,50,0.33
+75,Eevee ex,Double Rare,Pokemon,200,7.05
+76,Snorlax ex,Double Rare,Pokemon,260,1.61
+77,Hoothoot,Common,Pokemon,80,0.21
+78,Noctowl,Rare,Pokemon,100,0.25
+79,Dunsparce,Common,Pokemon,60,0.22
+80,Dudunsparce,Rare,Pokemon,140,0.49
+81,Miltank,Common,Pokemon,130,0.23
+82,Lugia ex,Double Rare,Pokemon,220,1.59
+83,Buneary,Common,Pokemon,60,0.20
+84,Lopunny,Common,Pokemon,90,0.20
+85,Fan Rotom,Common,Pokemon,70,0.23
+86,Regigigas,Uncommon,Pokemon,160,0.26
+87,Shaymin,Uncommon,Pokemon,70,0.17
+88,Furfrou,Common,Pokemon,100,0.11
+89,Hawlucha,Uncommon,Pokemon,80,0.17
+90,Noibat,Common,Pokemon,60,0.17
+91,Noivern ex,Double Rare,Pokemon,270,0.71
+92,Terapagos ex,Double Rare,Pokemon,230,0.73
+93,Amarys,Common,Trainer,0,0.11
+94,Area Zero Underdepths,Uncommon,Trainer,0,0.23
+95,Binding Mochi,Uncommon,Trainer,0,0.26
+96,Black Belt's Training,Common,Trainer,0,0.23
+97,Black Belt's Training,Common,Trainer,0,0.11
+98,Black Belt's Training,Common,Trainer,0,0.15
+99,Black Belt's Training,Common,Trainer,0,0.14
+100,Briar,Uncommon,Trainer,0,0.21
+101,Buddy-Buddy Poffin,Uncommon,Trainer,0,0.24
+102,Bug Catching Set,Uncommon,Trainer,0,0.28
+103,Carmine,Uncommon,Trainer,0,0.17
+104,Ciphermaniac's Codebreaking,Uncommon,Trainer,0,0.20
+105,Crispin,Uncommon,Trainer,0,0.29
+106,Earthen Vessel,Uncommon,Trainer,0,0.22
+107,Explorer's Guidance,Uncommon,Trainer,0,0.22
+108,Festival Grounds,Uncommon,Trainer,0,0.23
+109,Friends in Paldea,Common,Trainer,0,0.18
+110,Glass Trumpet,Uncommon,Trainer,0,0.17
+111,Haban Berry,Common,Trainer,0,0.14
+112,Janine's Secret Art,Uncommon,Trainer,0,0.26
+113,Kieran,Uncommon,Trainer,0,0.26
+114,Lacey,Uncommon,Trainer,0,0.13
+115,Larry's Skill,Common,Trainer,0,0.20
+116,Max Rod,ACE SPEC Rare,Trainer,0,0.70
+117,Maximum Belt,ACE SPEC Rare,Trainer,0,0.61
+118,Ogre's Mask,Uncommon,Trainer,0,0.17
+119,Prime Catcher,ACE SPEC Rare,Trainer,0,0.60
+120,Professor Sada's Vitality,Uncommon,Trainer,0,0.14
+121,Professor Turo's Scenario,Uncommon,Trainer,0,0.21
+122,Professor's Research,Common,Trainer,0,0.20
+123,Professor's Research,Common,Trainer,0,0.17
+124,Professor's Research,Common,Trainer,0,0.20
+125,Professor's Research,Common,Trainer,0,0.13
+126,Rescue Board,Uncommon,Trainer,0,0.14
+127,Roto-Stick,Common,Trainer,0,0.22
+128,Scoop Up Cyclone,ACE SPEC Rare,Trainer,0,0.38
+129,Sparkling Crystal,ACE SPEC Rare,Trainer,0,0.42
+130,Techno Radar,Uncommon,Trainer,0,0.15
+131,Treasure Tracker,ACE SPEC Rare,Trainer,0,0.37
+132,Amarys,Ultra Rare,Trainer,0,0.68
+133,Atticus,Ultra Rare,Trainer,0,0.69
+134,Atticus,Ultra Rare,Trainer,0,0.52
+135,Brassius,Ultra Rare,Trainer,0,0.62
+136,Eri,Ultra Rare,Trainer,0,0.94
+137,Friends in Paldea,Ultra Rare,Trainer,0,0.94
+138,Giacomo,Ultra Rare,Trainer,0,0.58
+139,Larry's Skill,Ultra Rare,Trainer,0,0.63
+140,Mela,Ultra Rare,Trainer,0,0.77
+141,Ortega,Ultra Rare,Trainer,0,0.57
+142,Raifort,Ultra Rare,Trainer,0,0.72
+143,Tyme,Ultra Rare,Trainer,0,0.53
+144,Leafeon ex,Special Illustration Rare,Pokemon,270,340.17
+145,Teal Mask Ogerpon ex,Special Illustration Rare,Pokemon,210,22.51
+146,Flareon ex,Special Illustration Rare,Pokemon,270,227.70
+147,Ceruledge ex,Special Illustration Rare,Pokemon,270,102.57
+148,Hearthflame Mask Ogerpon ex,Special Illustration Rare,Pokemon,210,19.61
+149,Vaporeon ex,Special Illustration Rare,Pokemon,280,303.45
+150,Glaceon ex,Special Illustration Rare,Pokemon,270,285.18
+151,Palafin ex,Special Illustration Rare,Pokemon,340,45.87
+152,Wellspring Mask Ogerpon ex,Special Illustration Rare,Pokemon,210,16.80
+153,Jolteon ex,Special Illustration Rare,Pokemon,260,204.00
+154,Iron Hands ex,Special Illustration Rare,Pokemon,230,33.22
+155,Espeon ex,Special Illustration Rare,Pokemon,270,309.88
+156,Sylveon ex,Special Illustration Rare,Pokemon,270,552.17
+157,Iron Valiant ex,Special Illustration Rare,Pokemon,220,53.62
+158,Iron Crown ex,Special Illustration Rare,Pokemon,220,38.37
+159,Sandy Shocks ex,Special Illustration Rare,Pokemon,220,26.72
+160,Cornerstone Mask Ogerpon ex,Special Illustration Rare,Pokemon,210,15.24
+161,Umbreon ex,Special Illustration Rare,Pokemon,280,1496.27
+162,Roaring Moon ex,Special Illustration Rare,Pokemon,230,178.66
+163,Pecharunt ex,Special Illustration Rare,Pokemon,190,30.25
+164,Gholdengo ex,Special Illustration Rare,Pokemon,260,52.34
+165,Dragapult ex,Special Illustration Rare,Pokemon,320,117.88
+166,Raging Bolt ex,Special Illustration Rare,Pokemon,240,69.37
+167,Eevee ex,Special Illustration Rare,Pokemon,200,189.75
+168,Bloodmoon Ursaluna ex,Special Illustration Rare,Pokemon,260,67.20
+169,Terapagos ex,Special Illustration Rare,Pokemon,230,34.54
+170,Amarys,Special Illustration Rare,Trainer,0,14.65
+171,Crispin,Special Illustration Rare,Trainer,0,35.90
+172,Drayton,Special Illustration Rare,Trainer,0,15.69
+173,Janine's Secret Art,Special Illustration Rare,Trainer,0,26.27
+174,Kieran,Special Illustration Rare,Trainer,0,19.74
+175,Lacey,Special Illustration Rare,Trainer,0,28.22
+176,Iron Leaves ex,Hyper Rare,Pokemon,220,5.73
+177,Teal Mask Ogerpon ex,Hyper Rare,Pokemon,210,8.86
+178,Walking Wake ex,Hyper Rare,Pokemon,220,6.12
+179,Pikachu ex,Hyper Rare,Pokemon,200,62.15
+180,Terapagos ex,Hyper Rare,Pokemon,230,9.44
