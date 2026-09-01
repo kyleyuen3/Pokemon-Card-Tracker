@@ -220,7 +220,7 @@ export default function App() {
               </td>
               <td className="num-col num">
                 {fmtMoney(d.price)}
-                {d.cardmarket_price_eur !== null &&
+                {d.cardmarket_price_eur != null &&
                   <div className="cardmarket-line">€{d.cardmarket_price_eur.toFixed(2)} Cardmarket</div>}
               </td>
               <td className="num-col"><PctChange value={d.pct_change_7d} /></td>
