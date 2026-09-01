@@ -1,4 +1,14 @@
 """
+LEGACY / MANUAL PATH -- superseded by fetch_prices.py + build_dataset.py.
+
+This script rebuilds the fair-value model from hand-authored CSVs you drop
+into sets/ (one manual pull per set, no history). It's kept around for
+reference and for the "hand-tune one specific set" workflow described in
+HOW_TO_ADD_A_SET.md, but the site now gets its data from the automated daily
+pipeline instead -- see README.md. Running this script will overwrite
+public/cards_data.json with a snapshot that has no price history, so the
+next daily automated run will look like a fresh start for trend purposes.
+
 Auto-discovers every set in sets/ and rebuilds the fair-value model across
 all of them, writing the result straight into the app's data file.
 

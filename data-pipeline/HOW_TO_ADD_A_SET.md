@@ -1,4 +1,17 @@
-# Adding a new set
+# Adding a new set (legacy manual path)
+
+**You probably don't need this anymore.** Since the daily automated pipeline
+(`fetch_prices.py` + `build_dataset.py`, see the root `README.md`) tracks
+every official Pokemon set automatically, a brand-new set shows up on its
+own the next time the pokemontcg.io API lists it — typically within a day or
+two of release, no manual steps at all.
+
+This manual CSV workflow is still useful for two things the API can't give
+you:
+- Getting a set in *before* the API has it (e.g. reading a spoiler list).
+- The "what you can't self-serve" items below (pull cost, cross-checked
+  prices) — those still require sourcing real numbers by hand, automated or
+  not.
 
 You never need to open VS Code's "new project" flow again, and you never need
 to edit App.jsx or the Python script. Just:
@@ -35,6 +48,11 @@ python3 build_model_multiset.py
 This automatically finds every `*_raw.csv` in `sets/`, rebuilds the whole
 model, and writes the result straight into
 `pokemon-valuations/public/cards_data.json` -- no copying files by hand.
+
+Note: this writes a snapshot with no price history, overwriting whatever the
+daily automated pipeline had built up. The next scheduled `fetch_prices.py`
+run picks the set up automatically (if the API has it yet) and history
+starts accumulating again from there.
 
 ## 4. See it
 
