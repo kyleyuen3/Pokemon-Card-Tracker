@@ -20,8 +20,10 @@ Then open the URL it prints (usually http://localhost:5173).
 
 ## Update the data
 
-Regenerate `public/cards_data.json` from `build_model.py`'s output CSV whenever
-you refresh prices, then just refresh the page (or redeploy).
+`public/cards_data.json` is regenerated automatically once a day by a GitHub
+Actions workflow (see the root `README.md`) — nothing to do here normally.
+To refresh it by hand, run `data-pipeline/fetch_prices.py` then
+`data-pipeline/build_dataset.py`, then refresh the page (or redeploy).
 
 ## Structure
 

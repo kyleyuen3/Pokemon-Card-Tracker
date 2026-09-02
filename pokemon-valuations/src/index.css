@@ -85,6 +85,18 @@ input[type="text"] {
   width: 220px;
 }
 input[type="text"]:focus { border-color: var(--sir); }
+.set-select {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  outline: none;
+  max-width: 240px;
+}
+.set-select:focus { border-color: var(--sir); }
 .chip-group { display: flex; gap: 6px; flex-wrap: wrap; }
 .chip {
   padding: 7px 13px;
@@ -174,6 +186,28 @@ td.num-col { text-align: right; }
 
 .disagree { font-size: 11px; color: var(--text-faint); }
 .disagree.hi { color: var(--ur); }
+.cardmarket-line { font-size: 11px; color: var(--text-faint); }
+
+.sparkline { display: block; overflow: visible; }
+
+.pagination {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  padding: 20px 32px 8px;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+.pagination button {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+}
+.pagination button:hover:not(:disabled) { border-color: var(--text-faint); }
+.pagination button:disabled { opacity: 0.4; cursor: default; }
 
 footer {
   padding: 28px 32px 60px;
