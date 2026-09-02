@@ -67,11 +67,19 @@ h1 {
 
 .controls {
   position: sticky; top: 0; z-index: 10;
-  display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
-  padding: 16px 32px;
+  display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-end;
+  padding: 14px 32px 16px;
   background: rgba(18,16,23,0.92);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
+}
+.filter-group { display: flex; flex-direction: column; gap: 6px; }
+.filter-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
 }
 input[type="text"] {
   background: var(--bg-raised);
@@ -82,10 +90,10 @@ input[type="text"] {
   font-family: 'Inter', sans-serif;
   font-size: 13.5px;
   outline: none;
-  width: 220px;
+  width: 200px;
 }
 input[type="text"]:focus { border-color: var(--sir); }
-.set-select {
+.filter-select {
   background: var(--bg-raised);
   border: 1px solid var(--line);
   color: var(--text);
@@ -94,10 +102,10 @@ input[type="text"]:focus { border-color: var(--sir); }
   font-family: 'Inter', sans-serif;
   font-size: 13.5px;
   outline: none;
-  max-width: 240px;
+  max-width: 220px;
 }
-.set-select:focus { border-color: var(--sir); }
-.chip-group { display: flex; gap: 6px; flex-wrap: wrap; }
+.filter-select:focus { border-color: var(--sir); }
+.chip-group { display: flex; gap: 6px; flex-wrap: wrap; padding-bottom: 1px; }
 .chip {
   padding: 7px 13px;
   border-radius: 999px;
@@ -112,11 +120,11 @@ input[type="text"]:focus { border-color: var(--sir); }
 .chip:hover { border-color: var(--text-faint); color: var(--text); }
 .chip.active { background: var(--text); color: var(--bg); border-color: var(--text); font-weight: 600;}
 .spacer { flex: 1; }
-.count-label { color: var(--text-faint); font-size: 12.5px; white-space: nowrap; }
+.count-label { color: var(--text-faint); font-size: 12.5px; white-space: nowrap; padding-bottom: 9px; }
 
-table { width: 100%; border-collapse: collapse; }
+table { width: 100%; border-collapse: separate; border-spacing: 0; }
 thead th {
-  position: sticky; top: 57px;
+  position: sticky; top: 85px; z-index: 5;
   background: var(--bg);
   text-align: left;
   padding: 10px 14px;
