@@ -172,25 +172,33 @@ export default function App() {
       </header>
 
       <div className="controls">
-        <input type="text" placeholder="Search card name…" value={search} onChange={e => setSearch(e.target.value)} />
-        <select className="set-select" value={set} onChange={e => setSet(e.target.value)}>
-          <option value="ALL">All sets ({setOrder.length})</option>
-          {setOrder.map(s => <option key={s} value={s}>{s}</option>)}
-        </select>
-        <div className="chip-group">
-          <div className={"chip" + (rarity === "ALL" ? " active" : "")} onClick={() => setRarity("ALL")}>All rarities</div>
-          {rarityOrder.map(r => (
-            <div key={r} className={"chip" + (rarity === r ? " active" : "")} onClick={() => setRarity(r)}>
-              {RARITY_SHORT[r] || r}
-            </div>
-          ))}
+        <div className="filter-group">
+          <label className="filter-label">Search</label>
+          <input type="text" placeholder="Card name…" value={search} onChange={e => setSearch(e.target.value)} />
         </div>
-        <div className="chip-group">
-          {["ALL", "UNDERVALUED", "OVERVALUED", "fair"].map(v => (
-            <div key={v} className={"chip" + (verdict === v ? " active" : "")} onClick={() => setVerdict(v)}>
-              {v === "ALL" ? "All" : v === "fair" ? "Fair" : v[0] + v.slice(1).toLowerCase()}
-            </div>
-          ))}
+        <div className="filter-group">
+          <label className="filter-label">Set</label>
+          <select className="filter-select" value={set} onChange={e => setSet(e.target.value)}>
+            <option value="ALL">All sets ({setOrder.length})</option>
+            {setOrder.map(s => <option key={s} value={s}>{s}</option>)}
+          </select>
+        </div>
+        <div className="filter-group">
+          <label className="filter-label">Rarity</label>
+          <select className="filter-select" value={rarity} onChange={e => setRarity(e.target.value)}>
+            <option value="ALL">All rarities ({rarityOrder.length})</option>
+            {rarityOrder.map(r => <option key={r} value={r}>{RARITY_SHORT[r] || r}</option>)}
+          </select>
+        </div>
+        <div className="filter-group">
+          <label className="filter-label">Verdict</label>
+          <div className="chip-group">
+            {["ALL", "UNDERVALUED", "OVERVALUED", "fair"].map(v => (
+              <div key={v} className={"chip" + (verdict === v ? " active" : "")} onClick={() => setVerdict(v)}>
+                {v === "ALL" ? "All" : v === "fair" ? "Fair" : v[0] + v.slice(1).toLowerCase()}
+              </div>
+            ))}
+          </div>
         </div>
         <div className="spacer" />
         <div className="count-label">{sorted.length} shown</div>
