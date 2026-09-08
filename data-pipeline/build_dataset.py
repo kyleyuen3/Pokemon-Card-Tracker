@@ -32,7 +32,8 @@ POPULARITY_PATH = HERE / "popularity_overrides.csv"
 APP_DATA_PATH = HERE.parent / "pokemon-valuations" / "public" / "cards_data.json"
 SUMMARY_CSV_PATH = HERE / "all_sets_valuations.csv"
 
-SPARKLINE_POINTS = 10
+HISTORY_POINTS = 90  # ~3 months once that much history exists; the compact
+                      # inline sparkline just uses the tail of this same array
 PACK_PRICE = 5.00
 # Only sets with a verified, specific-pull-odds source get a pull cost --
 # everything else stays blank rather than guessed. See HOW_TO_ADD_A_SET.md.
@@ -95,7 +96,7 @@ def build_trend_fields(history_df):
             continue  # no price today -- nothing to track for this card right now
 
         pct_7d = pct_30d = None
-        sparkline = []
+        history_points = []
         if series is not None:
             p7 = nearest_price_on_or_before(series, latest_date - timedelta(days=7))
             if p7 and p7 > 0:
@@ -103,7 +104,9 @@ def build_trend_fields(history_df):
             p30 = nearest_price_on_or_before(series, latest_date - timedelta(days=30))
             if p30 and p30 > 0:
                 pct_30d = round((price - p30) / p30 * 100, 1)
-            sparkline = [round(v, 2) for v in series.tail(SPARKLINE_POINTS).tolist()]
+            # [date, price] pairs (not bare numbers) so the site can show real
+            # dates on hover in the expanded chart, not just a shape.
+            history_points = [[d.strftime("%Y-%m-%d"), round(v, 2)] for d, v in series.tail(HISTORY_POINTS).items()]
 
         records.append({
             "card_id": card_id,
@@ -113,11 +116,12 @@ def build_trend_fields(history_df):
             "rarity": row["rarity"] if pd.notna(row["rarity"]) else "Unknown",
             "types": row["types"] if pd.notna(row["types"]) else "",
             "hp": row["hp"] if pd.notna(row["hp"]) else 0,
+            "image_small": None if pd.isna(row.get("image_small")) else row["image_small"],
             "tcgplayer_price": price,
             "cardmarket_price_eur": None if pd.isna(row["cardmarket_price_eur"]) else row["cardmarket_price_eur"],
             "pct_change_7d": pct_7d,
             "pct_change_30d": pct_30d,
-            "sparkline": sparkline,
+            "history": history_points,
         })
 
     return pd.DataFrame.from_records(records), latest_date
@@ -137,9 +141,26 @@ def apply_fair_value_model(df):
     df = df[df["price"] > 0].copy()
     df["log_price"] = np.log(df["price"])
 
+    # Below this many cards in a (set, rarity) group, there just isn't enough
+    # data for a "predicted price" to mean anything -- e.g. a group of 2 where
+    # one card is a $270 chase card and the other a $1 promo tin: the group's
+    # own mean gets used as the "prediction" and drags the tin's residual to
+    # an absurd extreme. Confirmed this concretely (Champion's Path "Rare
+    # Secret": Charizard V $269.45 + a Suspicious Food Tin at $1.42 -- the
+    # tin came out "UNDERVALUED" against a $134 "prediction" that was really
+    # just the average of two unrelated cards).
+    MIN_CONFIDENT_GROUP_SIZE = 6
+
     results = []
     for (_set, _rarity), group in df.groupby(["set", "rarity"]):
         group = group.copy()
+        # A group where every card has the exact same HP/popularity/ex-status
+        # gives the model nothing to work with either -- e.g. a pile of promo
+        # items that all default to hp=0, popularity=3.0, is_ex=0. Any
+        # "prediction" there is just the group average wearing a disguise.
+        degenerate = group[["hp", "popularity", "is_ex"]].fillna(0).nunique().le(1).all()
+        group["confident"] = len(group) >= MIN_CONFIDENT_GROUP_SIZE and not degenerate
+
         if len(group) < 4:
             group["predicted_price"] = group["price"].mean()
             group["residual_log"] = np.log(group["price"]) - np.log(group["predicted_price"])
@@ -157,8 +178,9 @@ def apply_fair_value_model(df):
 
     out = pd.concat(results).sort_values("residual_log")
     out["verdict"] = np.where(
-        out["residual_log"] > 0.35, "OVERVALUED",
-        np.where(out["residual_log"] < -0.35, "UNDERVALUED", "fair"),
+        ~out["confident"], None,
+        np.where(out["residual_log"] > 0.35, "OVERVALUED",
+          np.where(out["residual_log"] < -0.35, "UNDERVALUED", "fair")),
     )
 
     def lookup_pull_packs(row):
@@ -183,17 +205,17 @@ def main():
 
     out = apply_fair_value_model(trend_df)
 
-    columns = ["set", "number", "name", "rarity", "types", "hp", "is_ex", "popularity",
+    columns = ["set", "number", "name", "rarity", "types", "hp", "image_small", "is_ex", "popularity",
                "tcgplayer_price", "cardmarket_price_eur", "price", "predicted_price",
-               "residual_log", "verdict", "pull_cost", "pull_score",
-               "pct_change_7d", "pct_change_30d", "sparkline"]
+               "residual_log", "verdict", "confident", "pull_cost", "pull_score",
+               "pct_change_7d", "pct_change_30d", "history"]
     out = out[columns]
     out_rounded = out.copy()
     for col in ["predicted_price", "residual_log", "pull_cost", "pull_score", "tcgplayer_price"]:
         out_rounded[col] = out_rounded[col].astype(float).round(2)
 
-    # CSV can't hold list cells sensibly -- drop sparkline from the flat summary export.
-    out_rounded.drop(columns=["sparkline"]).to_csv(SUMMARY_CSV_PATH, index=False)
+    # CSV can't hold list cells sensibly -- drop history from the flat summary export.
+    out_rounded.drop(columns=["history"]).to_csv(SUMMARY_CSV_PATH, index=False)
 
     records = out_rounded.to_dict(orient="records")
     clean = [

@@ -76,7 +76,7 @@ def make_session():
 def fetch_page(session, page, use_select=True):
     params = {"page": page, "pageSize": PAGE_SIZE, "orderBy": "id"}
     if use_select:
-        params["select"] = "id,name,number,rarity,hp,types,set,tcgplayer,cardmarket"
+        params["select"] = "id,name,number,rarity,hp,types,set,tcgplayer,cardmarket,images"
 
     last_error = None
     for attempt in range(1, MAX_RETRIES + 1):
@@ -149,6 +149,7 @@ def parse_hp(card):
 def card_to_row(card, snapshot_date):
     set_info = card.get("set") or {}
     types = card.get("types") or []
+    images = card.get("images") or {}
     return {
         "date": snapshot_date,
         "card_id": card.get("id"),
@@ -161,6 +162,9 @@ def card_to_row(card, snapshot_date):
         "hp": parse_hp(card),
         "tcgplayer_price": extract_tcg_price(card),
         "cardmarket_price_eur": extract_cardmarket_price(card),
+        # Images don't change day to day -- capturing the URL here just
+        # reuses the request we're already making, no extra API cost.
+        "image_small": images.get("small"),
     }
 
 
@@ -231,7 +235,7 @@ def write_snapshot(rows, snapshot_date):
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     out_path = HISTORY_DIR / f"{snapshot_date}.csv.gz"
     fieldnames = ["date", "card_id", "set_id", "set_name", "number", "name",
-                  "rarity", "types", "hp", "tcgplayer_price", "cardmarket_price_eur"]
+                  "rarity", "types", "hp", "tcgplayer_price", "cardmarket_price_eur", "image_small"]
     with gzip.open(out_path, "wt", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
