@@ -172,45 +172,52 @@ function HistoryChart({ pairs, w, h, padL, padR, padT, padB, hoverIdx, setHoverI
   )
 }
 
-function MoverRow({ d, onClick }) {
+function TrendTile({ d, onClick }) {
+  const pct = d.pct_change_7d
+  const up = pct >= 0
+  const color = up ? "var(--under)" : "var(--over)"
   return (
-    <div className="mover-row" onClick={onClick}>
-      <div className="mover-name-set">
-        <span className="mover-name">{d.name}</span>
-        <span className="mover-set">{d.set}</span>
+    <div className="trend-tile" onClick={onClick}>
+      <div className="trend-tile-thumb">
+        {d.image_small && <img src={d.image_small} alt="" loading="lazy" onError={e => { e.target.style.display = "none" }} />}
       </div>
-      <span className="num mover-price">{fmtMoney(d.price)}</span>
-      <PctChange value={d.pct_change_7d} />
+      <div className="trend-tile-name" title={d.name}>{d.name}</div>
+      <div className="trend-tile-set" title={d.set}>{d.set}</div>
+      <div className="trend-tile-bottom">
+        <span className="trend-tile-price num">{fmtMoney(d.price)}</span>
+        <span className="trend-tile-pct num" style={{ color }}>{up ? "▲" : "▼"}{Math.abs(pct).toFixed(1)}%</span>
+      </div>
     </div>
   )
 }
 
-function MoversPanel({ data, onPick }) {
-  const withChange = useMemo(
-    () => data.filter(d => d.pct_change_7d !== null && d.pct_change_7d !== undefined),
-    [data]
-  )
+// Always ranks the whole catalog, regardless of the Main Set / Sub Set /
+// Rarity / Verdict filters -- a "what's moving right now" view is only
+// useful if it isn't quietly scoped to whatever's currently selected.
+const TRENDING_COUNT = 50
 
-  if (withChange.length === 0) {
+function TrendingGrid({ data, onPick }) {
+  const top = useMemo(() => {
+    const withChange = data.filter(d => d.pct_change_7d !== null && d.pct_change_7d !== undefined)
+    return withChange
+      .slice()
+      .sort((a, b) => Math.abs(b.pct_change_7d) - Math.abs(a.pct_change_7d))
+      .slice(0, TRENDING_COUNT)
+  }, [data])
+
+  if (top.length === 0) {
     return (
-      <div className="movers-panel movers-empty">
-        7-day movers need a week of daily history to compare against — check back soon.
+      <div className="trending-empty">
+        7-day trends need a week of daily history to compare against — check back soon.
       </div>
     )
   }
 
-  const gainers = withChange.slice().sort((a, b) => b.pct_change_7d - a.pct_change_7d).slice(0, 5)
-  const losers = withChange.slice().sort((a, b) => a.pct_change_7d - b.pct_change_7d).slice(0, 5)
-
   return (
-    <div className="movers-panel">
-      <div className="movers-col">
-        <div className="movers-title">Top gainers · 7d</div>
-        {gainers.map(d => <MoverRow key={d.set + "-" + d.number} d={d} onClick={() => onPick(d)} />)}
-      </div>
-      <div className="movers-col">
-        <div className="movers-title">Top losers · 7d</div>
-        {losers.map(d => <MoverRow key={d.set + "-" + d.number} d={d} onClick={() => onPick(d)} />)}
+    <div className="trending-section">
+      <p className="trending-eyebrow">Top {top.length} Trending · 7d change · biggest movers, up or down</p>
+      <div className="trending-grid">
+        {top.map(d => <TrendTile key={d.set + "-" + d.number} d={d} onClick={() => onPick(d)} />)}
       </div>
     </div>
   )
@@ -370,7 +377,7 @@ export default function App() {
         </div>
       </header>
 
-      <MoversPanel data={data} onPick={setHistoryCard} />
+      <TrendingGrid data={data} onPick={setHistoryCard} />
 
       <div className="controls">
         <div className="filter-group">
@@ -437,7 +444,7 @@ export default function App() {
               <tr key={d.set + "-" + d.number}>
                 <td className="name">
                   <div className="card-name-cell">
-                    {d.image_small && <img src={d.image_small} alt="" className="card-thumb" loading="lazy" />}
+                    {d.image_small && <img src={d.image_small} alt="" className="card-thumb" loading="lazy" onError={e => { e.target.style.display = "none" }} />}
                     <span><span className="card-num num">#{d.number}</span>{d.name}</span>
                   </div>
                 </td>
