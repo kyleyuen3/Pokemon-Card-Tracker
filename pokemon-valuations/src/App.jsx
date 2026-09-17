@@ -30,7 +30,8 @@ function parseUrlState() {
   const params = new URLSearchParams(window.location.search)
   return {
     search: params.get("q") || "",
-    set: params.get("set") || "ALL",
+    series: params.get("series") || "",
+    set: params.get("set") || "",
     rarity: params.get("rarity") || "ALL",
     verdict: params.get("verdict") || "ALL",
     sortKey: params.get("sort") || "residual_log",
@@ -218,6 +219,7 @@ function MoversPanel({ data, onPick }) {
 export default function App() {
   const [payload, setPayload] = useState(null)
   const [search, setSearch] = useState(initialUrlState.search)
+  const [series, setSeries] = useState(initialUrlState.series)
   const [set, setSet] = useState(initialUrlState.set)
   const [rarity, setRarity] = useState(initialUrlState.rarity)
   const [verdict, setVerdict] = useState(initialUrlState.verdict)
@@ -236,12 +238,26 @@ export default function App() {
   // stuck on "Loading card data…" in the interim.
   const data = payload ? (Array.isArray(payload) ? payload : payload.cards) : null
 
+  // "Main sets" -- the era each set belongs to (Scarlet & Violet, Sword &
+  // Shield, ...). "Other" (pokemontcg.io's own bucket for oddball products,
+  // plus any card fetched before this field existed) always sorts last.
+  const seriesOrder = useMemo(() => {
+    if (!data) return []
+    const values = [...new Set(data.map(d => d.series || "Other"))]
+    return values.sort((a, b) => a === "Other" ? 1 : b === "Other" ? -1 : a.localeCompare(b))
+  }, [data])
+
+  // The true total, independent of the series filter -- used in the header
+  // eyebrow, which should always describe the whole catalog, not whatever's
+  // currently narrowed down.
+  const totalSetCount = useMemo(() => data ? new Set(data.map(d => d.set)).size : 0, [data])
+
+  // Picking a series narrows the sub-set list to just that era's sets.
   const setOrder = useMemo(() => {
     if (!data) return []
-    const counts = {}
-    for (const d of data) counts[d.set] = (counts[d.set] || 0) + 1
-    return Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b))
-  }, [data])
+    const pool = series ? data.filter(d => (d.series || "Other") === series) : data
+    return [...new Set(pool.map(d => d.set))].sort((a, b) => a.localeCompare(b))
+  }, [data, series])
 
   const rarityOrder = useMemo(() => {
     if (!data) return RARITY_ORDER
@@ -250,16 +266,25 @@ export default function App() {
     return [...RARITY_ORDER, ...extra]
   }, [data])
 
+  // Typing a set's exact name (or picking one from the list) narrows to just
+  // that set; a partial search instead matches the whole family -- e.g.
+  // "Scarlet & Violet" alone also surfaces "...Black Star Promos" etc.
+  const setFilterIsExact = useMemo(() => setOrder.includes(set), [setOrder, set])
+
   const filtered = useMemo(() => {
     if (!data) return []
     return data.filter(d => {
-      if (set !== "ALL" && d.set !== set) return false
+      if (series && (d.series || "Other") !== series) return false
+      if (set) {
+        const matches = setFilterIsExact ? d.set === set : d.set.toLowerCase().includes(set.toLowerCase())
+        if (!matches) return false
+      }
       if (rarity !== "ALL" && d.rarity !== rarity) return false
       if (verdict !== "ALL" && d.verdict !== verdict) return false
       if (search && !d.name.toLowerCase().includes(search.toLowerCase())) return false
       return true
     })
-  }, [data, set, rarity, verdict, search])
+  }, [data, series, set, setFilterIsExact, rarity, verdict, search])
 
   const sorted = useMemo(() => {
     return filtered.slice().sort((a, b) => {
@@ -277,14 +302,15 @@ export default function App() {
   useEffect(() => {
     if (isFirstFilterRun.current) { isFirstFilterRun.current = false; return }
     setPage(1)
-  }, [set, rarity, verdict, search, sortKey, sortDir])
+  }, [series, set, rarity, verdict, search, sortKey, sortDir])
 
   // Keep the URL in sync so a filtered/sorted view can be bookmarked or
   // shared -- replaceState (not push) so this never pollutes back-button history.
   useEffect(() => {
     const params = new URLSearchParams()
     if (search) params.set("q", search)
-    if (set !== "ALL") params.set("set", set)
+    if (series) params.set("series", series)
+    if (set) params.set("set", set)
     if (rarity !== "ALL") params.set("rarity", rarity)
     if (verdict !== "ALL") params.set("verdict", verdict)
     if (sortKey !== "residual_log") params.set("sort", sortKey)
@@ -293,7 +319,7 @@ export default function App() {
     const qs = params.toString()
     const url = window.location.pathname + (qs ? "?" + qs : "")
     window.history.replaceState(null, "", url)
-  }, [search, set, rarity, verdict, sortKey, sortDir, page])
+  }, [search, series, set, rarity, verdict, sortKey, sortDir, page])
 
   function handleSort(key) {
     if (sortKey === key) setSortDir(d => d * -1)
@@ -327,7 +353,7 @@ export default function App() {
     <>
       <header>
         <p className="eyebrow">
-          {setOrder.length} sets · {data.length} cards tracked
+          {totalSetCount} sets · {data.length} cards tracked
           {payload.latest_price_date && ` · prices as of ${payload.latest_price_date}`}
         </p>
         <h1>Valuation Browser</h1>
@@ -352,11 +378,25 @@ export default function App() {
           <input type="text" placeholder="Card name…" value={search} onChange={e => setSearch(e.target.value)} />
         </div>
         <div className="filter-group">
-          <label className="filter-label">Set</label>
-          <select className="filter-select" value={set} onChange={e => setSet(e.target.value)}>
-            <option value="ALL">All sets ({setOrder.length})</option>
-            {setOrder.map(s => <option key={s} value={s}>{s}</option>)}
+          <label className="filter-label">Main Set</label>
+          <select className="filter-select" value={series} onChange={e => { setSeries(e.target.value); setSet("") }}>
+            <option value="">All eras ({seriesOrder.length})</option>
+            {seriesOrder.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
+        </div>
+        <div className="filter-group">
+          <label className="filter-label">Sub Set</label>
+          <input
+            type="text"
+            list="set-options"
+            className="filter-select"
+            placeholder={`${series ? "All in era" : "All sets"} (${setOrder.length})`}
+            value={set}
+            onChange={e => setSet(e.target.value)}
+          />
+          <datalist id="set-options">
+            {setOrder.map(s => <option key={s} value={s} />)}
+          </datalist>
         </div>
         <div className="filter-group">
           <label className="filter-label">Rarity</label>
