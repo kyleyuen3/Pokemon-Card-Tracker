@@ -155,6 +155,11 @@ def card_to_row(card, snapshot_date):
         "card_id": card.get("id"),
         "set_id": set_info.get("id"),
         "set_name": set_info.get("name"),
+        # The "era" a set belongs to (Scarlet & Violet, Sword & Shield, Sun &
+        # Moon, XY, Base, ...) -- pokemontcg.io already buckets oddball
+        # products (McDonald's collections, POP series, etc.) under "Other"
+        # itself, so no guessing needed on our end.
+        "series": set_info.get("series"),
         "number": card.get("number"),
         "name": card.get("name"),
         "rarity": card.get("rarity") or "Unknown",
@@ -234,7 +239,7 @@ def fetch_all_cards(session, max_pages=None):
 def write_snapshot(rows, snapshot_date):
     HISTORY_DIR.mkdir(parents=True, exist_ok=True)
     out_path = HISTORY_DIR / f"{snapshot_date}.csv.gz"
-    fieldnames = ["date", "card_id", "set_id", "set_name", "number", "name",
+    fieldnames = ["date", "card_id", "set_id", "set_name", "series", "number", "name",
                   "rarity", "types", "hp", "tcgplayer_price", "cardmarket_price_eur", "image_small"]
     with gzip.open(out_path, "wt", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)

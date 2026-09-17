@@ -90,27 +90,33 @@ def build_trend_fields(history_df):
     records = []
     for _, row in latest_rows.iterrows():
         card_id = row["card_id"]
-        series = by_card.get(card_id)
+        price_series = by_card.get(card_id)
         price = row["tcgplayer_price"]
         if pd.isna(price):
             continue  # no price today -- nothing to track for this card right now
 
         pct_7d = pct_30d = None
         history_points = []
-        if series is not None:
-            p7 = nearest_price_on_or_before(series, latest_date - timedelta(days=7))
+        if price_series is not None:
+            p7 = nearest_price_on_or_before(price_series, latest_date - timedelta(days=7))
             if p7 and p7 > 0:
                 pct_7d = round((price - p7) / p7 * 100, 1)
-            p30 = nearest_price_on_or_before(series, latest_date - timedelta(days=30))
+            p30 = nearest_price_on_or_before(price_series, latest_date - timedelta(days=30))
             if p30 and p30 > 0:
                 pct_30d = round((price - p30) / p30 * 100, 1)
             # [date, price] pairs (not bare numbers) so the site can show real
             # dates on hover in the expanded chart, not just a shape.
-            history_points = [[d.strftime("%Y-%m-%d"), round(v, 2)] for d, v in series.tail(HISTORY_POINTS).items()]
+            history_points = [[d.strftime("%Y-%m-%d"), round(v, 2)] for d, v in price_series.tail(HISTORY_POINTS).items()]
 
+        set_series = row.get("series")
         records.append({
             "card_id": card_id,
             "set": row["set_name"],
+            # The era/"main set" a set belongs to (Scarlet & Violet, Sword &
+            # Shield, ...) so the site can group sub-sets under it. Falls
+            # back to "Other" both for pokemontcg.io's own oddball-product
+            # bucket and for cards fetched before this field existed.
+            "series": set_series if isinstance(set_series, str) and set_series else "Other",
             "number": row["number"],
             "name": row["name"],
             "rarity": row["rarity"] if pd.notna(row["rarity"]) else "Unknown",
@@ -205,7 +211,7 @@ def main():
 
     out = apply_fair_value_model(trend_df)
 
-    columns = ["set", "number", "name", "rarity", "types", "hp", "image_small", "is_ex", "popularity",
+    columns = ["set", "series", "number", "name", "rarity", "types", "hp", "image_small", "is_ex", "popularity",
                "tcgplayer_price", "cardmarket_price_eur", "price", "predicted_price",
                "residual_log", "verdict", "confident", "pull_cost", "pull_score",
                "pct_change_7d", "pct_change_30d", "history"]
