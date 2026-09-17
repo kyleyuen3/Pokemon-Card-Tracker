@@ -191,6 +191,27 @@ function TrendTile({ d, onClick }) {
   )
 }
 
+// A thin/low-volume card (an old vintage single, say) can have its whole
+// "7-day move" created by a single fresh snapshot -- one odd TCGplayer
+// listing skewing that day's market price, not a real shift. Requiring most
+// of the move to have already shown up before the latest snapshot (i.e. it's
+// been confirmed by more than one day of data) filters those false spikes
+// out of the trending grid without hiding real, sustained moves.
+function isConfirmedMove(d) {
+  const pct = d.pct_change_7d
+  if (pct === null || pct === undefined || pct === 0) return false
+  const hist = getHistory(d)
+  if (hist.length < 2) return false
+  const latest = hist[hist.length - 1][1]
+  const prev = hist[hist.length - 2][1]
+  if (latest == null || prev == null) return false
+  const baseline = latest / (1 + pct / 100)
+  const totalMove = latest - baseline
+  if (!isFinite(totalMove) || totalMove === 0) return false
+  const lastStepMove = latest - prev
+  return Math.abs(lastStepMove) < Math.abs(totalMove) * 0.5
+}
+
 // Always ranks the whole catalog, regardless of the Main Set / Sub Set /
 // Rarity / Verdict filters -- a "what's moving right now" view is only
 // useful if it isn't quietly scoped to whatever's currently selected.
@@ -198,7 +219,7 @@ const TRENDING_COUNT = 50
 
 function TrendingGrid({ data, onPick }) {
   const top = useMemo(() => {
-    const withChange = data.filter(d => d.pct_change_7d !== null && d.pct_change_7d !== undefined)
+    const withChange = data.filter(d => d.pct_change_7d !== null && d.pct_change_7d !== undefined && isConfirmedMove(d))
     return withChange
       .slice()
       .sort((a, b) => Math.abs(b.pct_change_7d) - Math.abs(a.pct_change_7d))
@@ -215,7 +236,7 @@ function TrendingGrid({ data, onPick }) {
 
   return (
     <div className="trending-section">
-      <p className="trending-eyebrow">Top {top.length} Trending · 7d change · biggest movers, up or down</p>
+      <p className="trending-eyebrow">Top {top.length} Trending · 7d change · biggest sustained movers, up or down</p>
       <div className="trending-grid">
         {top.map(d => <TrendTile key={d.set + "-" + d.number} d={d} onClick={() => onPick(d)} />)}
       </div>
