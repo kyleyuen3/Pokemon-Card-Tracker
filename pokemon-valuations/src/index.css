@@ -66,7 +66,7 @@ h1 {
 .stat.over .n { color: var(--over); }
 
 .controls {
-  position: sticky; top: 0; z-index: 10;
+  position: sticky; top: 58px; z-index: 10;
   display: flex; gap: 20px; flex-wrap: wrap; align-items: flex-end;
   padding: 14px 32px 16px;
   background: rgba(18,16,23,0.92);
@@ -125,7 +125,7 @@ input[type="text"]:focus { border-color: var(--sir); }
 .table-wrap { overflow-x: visible; }
 table { width: 100%; border-collapse: separate; border-spacing: 0; }
 thead th {
-  position: sticky; top: 85px; z-index: 5;
+  position: sticky; top: 143px; z-index: 5;
   background: var(--bg);
   text-align: left;
   padding: 10px 14px;
@@ -336,3 +336,174 @@ footer {
 .modal-readout-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-faint); }
 .modal-readout-price { font-size: 22px; font-weight: 700; }
 .history-chart { display: block; width: 100%; height: auto; cursor: crosshair; }
+
+/* --- Nav bar --- */
+.top-nav {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(18,16,23,0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.top-nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 32px;
+  gap: 24px;
+}
+.nav-brand {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-links { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 8px;
+}
+.nav-link:hover { color: var(--text); background: var(--bg-raised); }
+.nav-link.active { color: var(--bg); background: var(--text); }
+
+/* --- Shared page bits --- */
+.page-body { padding: 24px 32px 8px; }
+.btn-primary {
+  display: inline-block;
+  background: linear-gradient(100deg, var(--sir), var(--hr));
+  color: #16121c;
+  font-weight: 700;
+  font-size: 13.5px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-primary:hover { opacity: 0.92; }
+.home-cta { margin-top: 22px; }
+
+/* --- Collections --- */
+.new-collection-form { display: flex; gap: 10px; margin-bottom: 20px; }
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  padding-bottom: 24px;
+}
+.collection-card {
+  position: relative;
+  display: block;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px;
+  text-decoration: none;
+  color: var(--text);
+}
+.collection-card:hover { border-color: var(--text-faint); }
+.collection-card-name { font-weight: 700; font-size: 16px; margin-bottom: 10px; padding-right: 20px; }
+.collection-card-stats {
+  display: flex; align-items: baseline; justify-content: space-between;
+  color: var(--text-dim); font-size: 13px;
+}
+.collection-card-stats .num { color: var(--text); font-weight: 600; }
+.collection-delete {
+  position: absolute; top: 10px; right: 10px;
+  width: 22px; height: 22px; border-radius: 999px;
+  background: transparent; border: 1px solid var(--line); color: var(--text-faint);
+  font-size: 14px; line-height: 1; cursor: pointer;
+}
+.collection-delete:hover { color: var(--over); border-color: var(--over); }
+
+/* --- Add-to-collection dropdown (Search page) --- */
+.add-menu { position: relative; }
+.add-menu-btn {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  padding: 6px 11px;
+  border-radius: 7px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.add-menu-btn:hover { color: var(--text); border-color: var(--text-faint); }
+.add-menu-panel {
+  position: absolute; right: 0; top: calc(100% + 6px); z-index: 15;
+  width: 220px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+}
+.add-menu-item {
+  display: block; width: 100%; text-align: left;
+  background: transparent; border: none; color: var(--text);
+  padding: 8px 10px; border-radius: 6px;
+  font-size: 13px; cursor: pointer;
+}
+.add-menu-item:hover { background: rgba(255,255,255,0.06); }
+.add-menu-item.active { color: var(--hr); }
+.add-menu-sep { height: 1px; background: var(--line); margin: 5px 2px; }
+.add-menu-new { display: flex; gap: 6px; padding: 4px; }
+.add-menu-new input {
+  flex: 1; min-width: 0;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 7px 9px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  outline: none;
+}
+.add-menu-new button {
+  background: var(--text); color: var(--bg); border: none;
+  border-radius: 6px; padding: 0 12px; font-size: 12.5px; font-weight: 600; cursor: pointer;
+}
+
+/* --- Add-card search (Collection detail / Wishlist) --- */
+.add-card-search { position: relative; margin-bottom: 22px; max-width: 420px; }
+.add-card-search input[type="text"] { width: 100%; }
+.add-card-results {
+  position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 15;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+  max-height: 320px;
+  overflow-y: auto;
+}
+.add-card-result {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%; text-align: left;
+  background: transparent; border: none; color: var(--text);
+  padding: 9px 10px; border-radius: 6px;
+  font-size: 13px; cursor: pointer;
+}
+.add-card-result:hover { background: rgba(255,255,255,0.06); }
+.add-card-result-set { flex: 1; color: var(--text-faint); font-size: 11.5px; text-align: right; }
+
+/* --- Quantity stepper (Collection detail) --- */
+.qty-stepper { display: inline-flex; align-items: center; gap: 8px; justify-content: flex-end; }
+.qty-stepper button {
+  width: 22px; height: 22px; border-radius: 6px;
+  background: var(--bg-raised); border: 1px solid var(--line); color: var(--text);
+  font-size: 14px; line-height: 1; cursor: pointer;
+}
+.qty-stepper button:hover { border-color: var(--text-faint); }
+
+.row-remove {
+  background: transparent; border: 1px solid var(--line); color: var(--text-faint);
+  padding: 5px 11px; border-radius: 7px; font-size: 12px; cursor: pointer; white-space: nowrap;
+}
+.row-remove:hover { color: var(--over); border-color: var(--over); }
+
+@media (max-width: 700px) {
+  .top-nav-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
