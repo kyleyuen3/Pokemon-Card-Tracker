@@ -216,10 +216,17 @@ function isConfirmedMove(d) {
 // Rarity / Verdict filters -- a "what's moving right now" view is only
 // useful if it isn't quietly scoped to whatever's currently selected.
 const TRENDING_COUNT = 50
+// Below $1, a card moving a cent or two swings its % change wildly (e.g.
+// $0.02 -> $0.06 is "200%") without being a move anyone actually cares about.
+const TRENDING_MIN_PRICE = 1
 
 function TrendingGrid({ data, onPick }) {
   const top = useMemo(() => {
-    const withChange = data.filter(d => d.pct_change_7d !== null && d.pct_change_7d !== undefined && isConfirmedMove(d))
+    const withChange = data.filter(d =>
+      d.pct_change_7d !== null && d.pct_change_7d !== undefined &&
+      d.price >= TRENDING_MIN_PRICE &&
+      isConfirmedMove(d)
+    )
     return withChange
       .slice()
       .sort((a, b) => Math.abs(b.pct_change_7d) - Math.abs(a.pct_change_7d))
