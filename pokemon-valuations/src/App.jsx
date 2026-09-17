@@ -30,7 +30,7 @@ function parseUrlState() {
   const params = new URLSearchParams(window.location.search)
   return {
     search: params.get("q") || "",
-    set: params.get("set") || "ALL",
+    set: params.get("set") || "",
     rarity: params.get("rarity") || "ALL",
     verdict: params.get("verdict") || "ALL",
     sortKey: params.get("sort") || "residual_log",
@@ -238,9 +238,7 @@ export default function App() {
 
   const setOrder = useMemo(() => {
     if (!data) return []
-    const counts = {}
-    for (const d of data) counts[d.set] = (counts[d.set] || 0) + 1
-    return Object.keys(counts).sort((a, b) => counts[b] - counts[a] || a.localeCompare(b))
+    return [...new Set(data.map(d => d.set))].sort((a, b) => a.localeCompare(b))
   }, [data])
 
   const rarityOrder = useMemo(() => {
@@ -250,16 +248,24 @@ export default function App() {
     return [...RARITY_ORDER, ...extra]
   }, [data])
 
+  // Typing a set's exact name (or picking one from the list) narrows to just
+  // that set; a partial search instead matches the whole family -- e.g.
+  // "Scarlet & Violet" alone also surfaces "...Black Star Promos" etc.
+  const setFilterIsExact = useMemo(() => setOrder.includes(set), [setOrder, set])
+
   const filtered = useMemo(() => {
     if (!data) return []
     return data.filter(d => {
-      if (set !== "ALL" && d.set !== set) return false
+      if (set) {
+        const matches = setFilterIsExact ? d.set === set : d.set.toLowerCase().includes(set.toLowerCase())
+        if (!matches) return false
+      }
       if (rarity !== "ALL" && d.rarity !== rarity) return false
       if (verdict !== "ALL" && d.verdict !== verdict) return false
       if (search && !d.name.toLowerCase().includes(search.toLowerCase())) return false
       return true
     })
-  }, [data, set, rarity, verdict, search])
+  }, [data, set, setFilterIsExact, rarity, verdict, search])
 
   const sorted = useMemo(() => {
     return filtered.slice().sort((a, b) => {
@@ -284,7 +290,7 @@ export default function App() {
   useEffect(() => {
     const params = new URLSearchParams()
     if (search) params.set("q", search)
-    if (set !== "ALL") params.set("set", set)
+    if (set) params.set("set", set)
     if (rarity !== "ALL") params.set("rarity", rarity)
     if (verdict !== "ALL") params.set("verdict", verdict)
     if (sortKey !== "residual_log") params.set("sort", sortKey)
@@ -353,10 +359,17 @@ export default function App() {
         </div>
         <div className="filter-group">
           <label className="filter-label">Set</label>
-          <select className="filter-select" value={set} onChange={e => setSet(e.target.value)}>
-            <option value="ALL">All sets ({setOrder.length})</option>
-            {setOrder.map(s => <option key={s} value={s}>{s}</option>)}
-          </select>
+          <input
+            type="text"
+            list="set-options"
+            className="filter-select"
+            placeholder={`All sets (${setOrder.length})`}
+            value={set}
+            onChange={e => setSet(e.target.value)}
+          />
+          <datalist id="set-options">
+            {setOrder.map(s => <option key={s} value={s} />)}
+          </datalist>
         </div>
         <div className="filter-group">
           <label className="filter-label">Rarity</label>
