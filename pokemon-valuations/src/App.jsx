@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import NavBar from './components/NavBar.jsx'
 import HomePage from './pages/HomePage.jsx'
 import SearchPage from './pages/SearchPage.jsx'
@@ -9,6 +9,24 @@ import WishlistPage from './pages/WishlistPage.jsx'
 import { CollectionsProvider } from './lib/store.jsx'
 import { PriceHistoryModal } from './lib/shared.jsx'
 import { cardKey } from './lib/cardKey.js'
+
+// Keying on the path forces a remount on every navigation, which is what
+// re-triggers the CSS entrance animation (see .page-transition) each time --
+// a plain re-render wouldn't replay it.
+function AnimatedRoutes({ data, payload, cardByKey, onPickHistory }) {
+  const location = useLocation()
+  return (
+    <div key={location.pathname} className="page-transition">
+      <Routes location={location}>
+        <Route path="/" element={<HomePage data={data} payload={payload} onPickHistory={onPickHistory} />} />
+        <Route path="/search" element={<SearchPage data={data} payload={payload} onPickHistory={onPickHistory} />} />
+        <Route path="/collections" element={<CollectionsPage cardByKey={cardByKey} />} />
+        <Route path="/collections/:id" element={<CollectionDetailPage data={data} cardByKey={cardByKey} onPickHistory={onPickHistory} />} />
+        <Route path="/wishlist" element={<WishlistPage data={data} cardByKey={cardByKey} onPickHistory={onPickHistory} />} />
+      </Routes>
+    </div>
+  )
+}
 
 export default function App() {
   const [payload, setPayload] = useState(null)
@@ -39,13 +57,7 @@ export default function App() {
     <CollectionsProvider>
       <HashRouter>
         <NavBar />
-        <Routes>
-          <Route path="/" element={<HomePage data={data} payload={payload} onPickHistory={setHistoryCard} />} />
-          <Route path="/search" element={<SearchPage data={data} payload={payload} onPickHistory={setHistoryCard} />} />
-          <Route path="/collections" element={<CollectionsPage cardByKey={cardByKey} />} />
-          <Route path="/collections/:id" element={<CollectionDetailPage data={data} cardByKey={cardByKey} onPickHistory={setHistoryCard} />} />
-          <Route path="/wishlist" element={<WishlistPage data={data} cardByKey={cardByKey} onPickHistory={setHistoryCard} />} />
-        </Routes>
+        <AnimatedRoutes data={data} payload={payload} cardByKey={cardByKey} onPickHistory={setHistoryCard} />
 
         {historyCard && <PriceHistoryModal card={historyCard} onClose={() => setHistoryCard(null)} />}
       </HashRouter>

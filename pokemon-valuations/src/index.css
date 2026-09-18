@@ -507,3 +507,49 @@ footer {
 @media (max-width: 700px) {
   .top-nav-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
 }
+
+/* --- Animations --- */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.page-transition { animation: pageFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes dropdownIn {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.add-menu-panel, .add-card-results { animation: dropdownIn 0.15s ease both; transform-origin: top right; }
+
+@keyframes modalBackdropIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modalBoxIn {
+  from { opacity: 0; transform: scale(0.96) translateY(6px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-backdrop { animation: modalBackdropIn 0.18s ease both; }
+.modal-box { animation: modalBoxIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+.nav-link { transition: background-color 0.15s ease, color 0.15s ease; }
+.chip { transition: background-color 0.12s ease, color 0.12s ease, border-color 0.12s ease; }
+tbody tr { transition: background-color 0.12s ease; }
+.pagination button, .qty-stepper button, .row-remove, .add-menu-btn, .collection-delete {
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.btn-primary { transition: opacity 0.15s ease, transform 0.15s ease; }
+.btn-primary:hover { transform: translateY(-1px); }
+.collection-card { transition: border-color 0.15s ease, transform 0.15s ease; }
+.collection-card:hover { transform: translateY(-2px); }
+.trend-tile { transition: border-color 0.15s ease, transform 0.15s ease; }
+.trend-tile:hover { transform: translateY(-2px); }
+.add-card-result, .add-menu-item { transition: background-color 0.1s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition, .add-menu-panel, .add-card-results, .modal-backdrop, .modal-box {
+    animation: none;
+  }
+  .nav-link, .chip, tbody tr, .pagination button, .qty-stepper button, .row-remove,
+  .add-menu-btn, .collection-delete, .btn-primary, .collection-card, .trend-tile,
+  .add-card-result, .add-menu-item {
+    transition: none;
+  }
+}
