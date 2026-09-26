@@ -202,10 +202,9 @@ function isConfirmedMove(d) {
 // Always ranks the whole catalog, regardless of the Main Set / Sub Set /
 // Rarity / Verdict filters -- a "what's moving right now" view is only
 // useful if it isn't quietly scoped to whatever's currently selected.
-// Split evenly across Gainers/Losers so the total shown matches the original
-// "50 trending cards" ask.
-const TRENDING_COUNT = 50
-const HALF_COUNT = TRENDING_COUNT / 2
+// 50 per section (not split from one shared total) so each direction gets
+// its own full list -- and 50 divides evenly into the 10-column grid below.
+const SECTION_COUNT = 50
 // Below $1, a card moving a cent or two swings its % change wildly (e.g.
 // $0.02 -> $0.06 is "200%") without being a move anyone actually cares about.
 const TRENDING_MIN_PRICE = 1
@@ -234,10 +233,10 @@ export function TrendingGrid({ data, onPick }) {
     )
     const gainers = pool.filter(d => d.pct_change_7d > 0)
       .sort((a, b) => b.pct_change_7d - a.pct_change_7d)
-      .slice(0, HALF_COUNT)
+      .slice(0, SECTION_COUNT)
     const losers = pool.filter(d => d.pct_change_7d < 0)
       .sort((a, b) => a.pct_change_7d - b.pct_change_7d)
-      .slice(0, HALF_COUNT)
+      .slice(0, SECTION_COUNT)
     return { gainers, losers }
   }, [data])
 
