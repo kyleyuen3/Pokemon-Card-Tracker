@@ -93,6 +93,25 @@ export function CollectionsProvider({ children }) {
     }))
   }, [])
 
+  // Bulk add from a CSV import -- one state update for the whole file instead
+  // of one per row, so a large import doesn't thrash re-renders.
+  const importCardsToCollection = useCallback((collectionId, entries) => {
+    setState(s => ({
+      ...s,
+      collections: s.collections.map(c => {
+        if (c.id !== collectionId) return c
+        const cards = [...c.cards]
+        for (const { card, quantity } of entries) {
+          const key = cardKey(card)
+          const idx = cards.findIndex(x => x.key === key)
+          if (idx >= 0) cards[idx] = { ...cards[idx], quantity: cards[idx].quantity + quantity }
+          else cards.push({ ...snapshot(card), quantity })
+        }
+        return { ...c, cards }
+      })
+    }))
+  }, [])
+
   const toggleWishlist = useCallback((d) => {
     const key = cardKey(d)
     setState(s => {
@@ -110,6 +129,7 @@ export function CollectionsProvider({ children }) {
     addCardToCollection,
     setCardQuantity,
     removeCardFromCollection,
+    importCardsToCollection,
     toggleWishlist,
   }
 
