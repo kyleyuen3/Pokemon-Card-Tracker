@@ -259,11 +259,12 @@ footer {
 
 .trending-grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  /* 5 columns so 25 tiles (Top 25 Gainers/Losers) fill an exact 5x5 grid --
+     no half-empty trailing row. */
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   padding: 0 32px;
 }
-@media (max-width: 1100px) { .trending-grid { grid-template-columns: repeat(5, 1fr); } }
 @media (max-width: 620px) { .trending-grid { grid-template-columns: repeat(2, 1fr); } }
 
 .trend-tile {
