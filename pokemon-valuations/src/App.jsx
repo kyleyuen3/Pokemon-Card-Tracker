@@ -56,7 +56,7 @@ export default function App() {
   return (
     <CollectionsProvider>
       <HashRouter>
-        <NavBar />
+        <NavBar cardByKey={cardByKey} />
         <AnimatedRoutes data={data} payload={payload} cardByKey={cardByKey} onPickHistory={setHistoryCard} />
 
         {historyCard && <PriceHistoryModal card={historyCard} onClose={() => setHistoryCard(null)} />}

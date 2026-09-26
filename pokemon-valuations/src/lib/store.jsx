@@ -120,6 +120,16 @@ export function CollectionsProvider({ children }) {
     })
   }, [])
 
+  // null clears the alert. There's no backend to push/email from, so this is
+  // checked client-side against live prices whenever the site is open --
+  // see the triggered-alert badge on the Wishlist nav link and page.
+  const setWishlistAlert = useCallback((key, alertPrice) => {
+    setState(s => ({
+      ...s,
+      wishlist: s.wishlist.map(w => w.key === key ? { ...w, alertPrice: alertPrice ?? undefined } : w)
+    }))
+  }, [])
+
   const value = {
     collections: state.collections,
     wishlist: state.wishlist,
@@ -131,6 +141,7 @@ export function CollectionsProvider({ children }) {
     removeCardFromCollection,
     importCardsToCollection,
     toggleWishlist,
+    setWishlistAlert,
   }
 
   return <CollectionsContext.Provider value={value}>{children}</CollectionsContext.Provider>

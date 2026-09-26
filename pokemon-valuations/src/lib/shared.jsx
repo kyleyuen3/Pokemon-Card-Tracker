@@ -21,6 +21,13 @@ export function getHistory(d) {
   return []
 }
 
+// A wishlist entry's alert has fired once the live price drops to or below
+// the target the user set -- there's no backend to push/email this from, so
+// it's just checked client-side whenever the site is open.
+export function isAlertTriggered(entry, price) {
+  return entry.alertPrice != null && price <= entry.alertPrice
+}
+
 export function fmtMoney(v) {
   if (v === null || v === undefined) return <span style={{ color: 'var(--text-faint)' }}>—</span>
   return '$' + v.toFixed(2)
