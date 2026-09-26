@@ -1,13 +1,19 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useCollections } from '../lib/store.jsx'
 import { fmtMoney } from '../lib/shared.jsx'
+import { cardKey } from '../lib/cardKey.js'
+import { toCsv, parseCsv } from '../lib/csv.js'
+
+const CSV_COLUMNS = ["Set", "Number", "Name", "Rarity", "Quantity", "Price", "Subtotal"]
 
 export default function CollectionDetailPage({ data, cardByKey, onPickHistory }) {
   const { id } = useParams()
-  const { collections, addCardToCollection, setCardQuantity, removeCardFromCollection } = useCollections()
+  const { collections, addCardToCollection, setCardQuantity, removeCardFromCollection, importCardsToCollection } = useCollections()
   const collection = collections.find(c => c.id === id)
   const [query, setQuery] = useState("")
+  const [importSummary, setImportSummary] = useState(null)
+  const fileInputRef = useRef(null)
 
   const matches = useMemo(() => {
     if (!query.trim()) return []
@@ -38,6 +44,75 @@ export default function CollectionDetailPage({ data, cardByKey, onPickHistory })
   const total = rows.reduce((sum, r) => sum + r.price * r.quantity, 0)
   const totalQty = rows.reduce((sum, r) => sum + r.quantity, 0)
 
+  function handleExport() {
+    const csv = toCsv(rows.map(r => ({
+      Set: r.set, Number: r.number, Name: r.name, Rarity: r.rarity,
+      Quantity: r.quantity, Price: r.price.toFixed(2), Subtotal: (r.price * r.quantity).toFixed(2),
+    })), CSV_COLUMNS)
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = `${collection.name.replace(/[^a-z0-9]+/gi, "_") || "collection"}.csv`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }
+
+  // Matches each CSV row to a real card: an exact set+number+name match first
+  // (what our own export produces, so re-importing it round-trips exactly),
+  // falling back to set+number alone, then to name alone -- but only when
+  // that fallback resolves to exactly one card, since guessing wrong would
+  // silently add the wrong card to someone's collection.
+  function resolveImportRow(row) {
+    const set = row.Set || row.set || ""
+    const number = row.Number || row.number || ""
+    const name = row.Name || row.name || ""
+
+    if (set && number && name) {
+      const exact = cardByKey.get(cardKey({ set, number, name }))
+      if (exact) return exact
+    }
+    if (set && number) {
+      const candidates = data.filter(d => d.set.toLowerCase() === set.toLowerCase() && String(d.number) === String(number))
+      if (candidates.length === 1) return candidates[0]
+    }
+    if (name) {
+      const candidates = data.filter(d => d.name.toLowerCase() === name.toLowerCase())
+      if (candidates.length === 1) return candidates[0]
+    }
+    return null
+  }
+
+  function handleImportFile(e) {
+    const file = e.target.files[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = () => {
+      const parsedRows = parseCsv(String(reader.result))
+      const matched = []
+      const unmatched = []
+      for (const row of parsedRows) {
+        const card = resolveImportRow(row)
+        if (card) {
+          const qty = parseInt(row.Quantity || row.quantity, 10)
+          matched.push({ card, quantity: Number.isFinite(qty) && qty > 0 ? qty : 1 })
+        } else {
+          unmatched.push(row.Name || row.name || `${row.Set || ""} #${row.Number || "?"}`)
+        }
+      }
+      if (matched.length > 0) importCardsToCollection(collection.id, matched)
+      const parts = [`Imported ${matched.length} card${matched.length === 1 ? "" : "s"}`]
+      if (unmatched.length > 0) {
+        parts.push(`${unmatched.length} row${unmatched.length === 1 ? "" : "s"} not found (${unmatched.slice(0, 5).join(", ")}${unmatched.length > 5 ? "…" : ""})`)
+      }
+      setImportSummary(parts.join(" · "))
+    }
+    reader.readAsText(file)
+    e.target.value = ""
+  }
+
   return (
     <>
       <header>
@@ -64,6 +139,13 @@ export default function CollectionDetailPage({ data, cardByKey, onPickHistory })
             </div>
           )}
         </div>
+
+        <div className="csv-actions">
+          <button className="btn-secondary" onClick={handleExport} disabled={rows.length === 0}>⬇ Export CSV</button>
+          <button className="btn-secondary" onClick={() => fileInputRef.current?.click()}>⬆ Import CSV</button>
+          <input ref={fileInputRef} type="file" accept=".csv,text/csv" onChange={handleImportFile} style={{ display: "none" }} />
+        </div>
+        {importSummary && <div className="import-summary">{importSummary}</div>}
 
         {rows.length === 0 ? (
           <div className="empty-state">No cards in this collection yet — search above to add some.</div>

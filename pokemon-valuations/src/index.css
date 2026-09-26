@@ -537,6 +537,31 @@ tbody tr { transition: background-color 0.12s ease; }
 }
 .btn-primary { transition: opacity 0.15s ease, transform 0.15s ease; }
 .btn-primary:hover { transform: translateY(-1px); }
+
+.csv-actions { display: flex; gap: 10px; margin-bottom: 14px; }
+.btn-secondary {
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 9px 15px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.btn-secondary:hover:not(:disabled) { border-color: var(--text-faint); }
+.btn-secondary:disabled { opacity: 0.4; cursor: default; }
+.import-summary {
+  font-size: 12.5px;
+  color: var(--text-dim);
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 18px;
+}
 .collection-card { transition: border-color 0.15s ease, transform 0.15s ease; }
 .collection-card:hover { transform: translateY(-2px); }
 .trend-tile { transition: border-color 0.15s ease, transform 0.15s ease; }
