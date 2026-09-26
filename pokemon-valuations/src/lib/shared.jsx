@@ -202,25 +202,46 @@ function isConfirmedMove(d) {
 // Always ranks the whole catalog, regardless of the Main Set / Sub Set /
 // Rarity / Verdict filters -- a "what's moving right now" view is only
 // useful if it isn't quietly scoped to whatever's currently selected.
+// Split evenly across Gainers/Losers so the total shown matches the original
+// "50 trending cards" ask.
 const TRENDING_COUNT = 50
+const HALF_COUNT = TRENDING_COUNT / 2
 // Below $1, a card moving a cent or two swings its % change wildly (e.g.
 // $0.02 -> $0.06 is "200%") without being a move anyone actually cares about.
 const TRENDING_MIN_PRICE = 1
 
+function TrendingSection({ label, color, cards, onPick, emptyText }) {
+  return (
+    <div className="trending-section">
+      <p className="trending-eyebrow" style={{ color }}>{label}</p>
+      {cards.length === 0 ? (
+        <div className="trending-empty">{emptyText}</div>
+      ) : (
+        <div className="trending-grid">
+          {cards.map(d => <TrendTile key={d.set + "-" + d.number} d={d} onClick={() => onPick(d)} />)}
+        </div>
+      )}
+    </div>
+  )
+}
+
 export function TrendingGrid({ data, onPick }) {
-  const top = useMemo(() => {
-    const withChange = data.filter(d =>
+  const { gainers, losers } = useMemo(() => {
+    const pool = data.filter(d =>
       d.pct_change_7d !== null && d.pct_change_7d !== undefined &&
       d.price >= TRENDING_MIN_PRICE &&
       isConfirmedMove(d)
     )
-    return withChange
-      .slice()
-      .sort((a, b) => Math.abs(b.pct_change_7d) - Math.abs(a.pct_change_7d))
-      .slice(0, TRENDING_COUNT)
+    const gainers = pool.filter(d => d.pct_change_7d > 0)
+      .sort((a, b) => b.pct_change_7d - a.pct_change_7d)
+      .slice(0, HALF_COUNT)
+    const losers = pool.filter(d => d.pct_change_7d < 0)
+      .sort((a, b) => a.pct_change_7d - b.pct_change_7d)
+      .slice(0, HALF_COUNT)
+    return { gainers, losers }
   }, [data])
 
-  if (top.length === 0) {
+  if (gainers.length === 0 && losers.length === 0) {
     return (
       <div className="trending-empty">
         7-day trends need a week of daily history to compare against — check back soon.
@@ -229,11 +250,21 @@ export function TrendingGrid({ data, onPick }) {
   }
 
   return (
-    <div className="trending-section">
-      <p className="trending-eyebrow">Top {top.length} Trending · 7d change · biggest sustained movers, up or down</p>
-      <div className="trending-grid">
-        {top.map(d => <TrendTile key={d.set + "-" + d.number} d={d} onClick={() => onPick(d)} />)}
-      </div>
-    </div>
+    <>
+      <TrendingSection
+        label={`▲ Top ${gainers.length} Gainers · 7d change`}
+        color="var(--under)"
+        cards={gainers}
+        onPick={onPick}
+        emptyText="No sustained gainers to show yet."
+      />
+      <TrendingSection
+        label={`▼ Top ${losers.length} Losers · 7d change`}
+        color="var(--over)"
+        cards={losers}
+        onPick={onPick}
+        emptyText="No sustained losers to show yet."
+      />
+    </>
   )
 }
